@@ -1995,3 +1995,6 @@ img:hover {
 .author-info__avatar {
   visibility: hidden;
 }
+p {
+  text-indent: 2em;
+}
