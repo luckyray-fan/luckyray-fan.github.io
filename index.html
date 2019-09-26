@@ -7,63 +7,63 @@
     error: '复制错误',
     noSupport: '浏览器不支持'
   }
-}</script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center"></div><div class="author-info__description text-center">只能自己努力找乐子了</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">2</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">1</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">1</span></a></div></div></div><nav id="nav" style="background-image: url(http://img.luckyray.cn/896653.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">luckyray</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">luckyray</div><div id="site-sub-title">_(:з」∠)_</div><div id="site-social-icons"><a class="social-icon" href="https://github.com/yoshiro_fan"><i class="fa-github fa"></i></a></div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2019/09/16/this-apply-call/">this,apply,call</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/js/">Javascript</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/junior/">进阶</a></span><div class="content"><h2 id="什么是-this"><a href="#什么是-this" class="headerlink" title="什么是 this"></a>什么是 this</h2><p>&emsp;this 首先是一个对象(当然在严格模式下也会是 undefined),当然在 <em>MDN</em> 中也被形容为当前执行代码的环境对象。这么称呼的原因和函数的调用有关系,例如:</p>
+}</script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center"></div><div class="author-info__description text-center">只能自己努力找乐子了</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">2</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">1</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">1</span></a></div></div></div><nav id="nav" style="background-image: url(http://img.luckyray.cn/896653.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">luckyray</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">luckyray</div><div id="site-sub-title">_(:з」∠)_</div><div id="site-social-icons"><a class="social-icon" href="https://github.com/yoshiro_fan"><i class="fa-github fa"></i></a></div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2019/09/16/this-apply-call/">this,apply,call</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/js/">Javascript</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/junior/">进阶</a></span><div class="content"><h2 id="什么是-this"><a href="#什么是-this" class="headerlink" title="什么是 this"></a>什么是 this</h2><p>this 首先是一个对象(在严格模式下也会是 undefined),当然在 <em>MDN</em> 中也被形容为当前执行代码的环境对象。这么称呼的原因和函数的调用有关系,例如:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(name)</span><br><span class="line">&#125;</span><br><span class="line">test(<span class="string">'123'</span>)</span><br><span class="line">test.call(<span class="literal">undefined</span>,<span class="string">'123'</span>)</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;而这么调用的结果如下图:</p>
-<p>&emsp;<img src="/image/this-1.png" alt=" "></p>
-<p>&emsp;实际上的函数调用便是如上图,也就是说 this 实际上就是我们传入的那个 undefined 也就是当前的 context 环境。</p>
+<p>而这么调用的结果如下图:</p>
+<p><img src="/image/this-1.png" alt=" "></p>
+<p>实际上的函数调用便是如上图,也就是说 this 实际上就是我们传入的那个 undefined 也就是当前的 context 环境。</p>
 <blockquote>
-<p>&emsp;如果你传的 context 是 null 或者 undefined，那么 window 对象就是默认的 context（严格模式下默认 context 是 undefined）。</p>
+<p>如果你传的 context 是 null 或者 undefined，那么 window 对象就是默认的 context（严格模式下默认 context 是 undefined）。</p>
 </blockquote>
-<p>&emsp;所以此处打印出来的就是 windows</p>
+<p>所以此处打印出来的就是 windows</p>
 <h2 id="不同情况下的-this"><a href="#不同情况下的-this" class="headerlink" title="不同情况下的 this"></a>不同情况下的 this</h2><blockquote>
 <ol>
 <li>顶层调用中的 this</li>
 </ol>
 </blockquote>
-<p>&emsp;<img src="/image/this-3.png" alt=" "></p>
+<p><img src="/image/this-3.png" alt=" "></p>
 <blockquote>
 <ol start="2">
 <li>对象中调用的 this</li>
 </ol>
 </blockquote>
-<p>&emsp;<img src="/image/this-4.png" alt=" "></p>
+<p><img src="/image/this-4.png" alt=" "></p>
 <blockquote>
 <ol start="3">
 <li>构造函数中调用的 this</li>
 </ol>
 </blockquote>
-<p>&emsp;<img src="/image/this-5.png" alt=" "></p>
+<p><img src="/image/this-5.png" alt=" "></p>
 <blockquote>
 <ol start="4">
 <li>箭头函数中的 this</li>
 </ol>
 </blockquote>
-<p>&emsp;<img src="/image/this-6-1.png" alt=" "> &emsp;<img src="/image/this-6-1.png" alt=" "></p>
+<p><img src="/image/this-6-1.png" alt=" "> <img src="/image/this-6-1.png" alt=" "></p>
 <blockquote>
 <ol start="5">
 <li>setTimeOut , eval 中的 this</li>
 </ol>
 </blockquote>
-<p>&emsp;<img src="/image/this-7.png" alt=" "></p>
+<p><img src="/image/this-7.png" alt=" "></p>
 <blockquote>
 <ol start="6">
 <li>使用 call,apply 后的 this</li>
 </ol>
 </blockquote>
-<p>&emsp;<img src="/image/this-8.png" alt=" "></p>
+<p><img src="/image/this-8.png" alt=" "></p>
 <blockquote>
-<p><a href="https://stackoverflow.com/questions/14633968/chrome-firefox-console-log-always-appends-a-line-saying-undefined" target="_blank" rel="noopener">&emsp;使用 chrome 的 console.log 方法会出现 undefined 的原因</a></p>
+<p><a href="https://stackoverflow.com/questions/14633968/chrome-firefox-console-log-always-appends-a-line-saying-undefined" target="_blank" rel="noopener">使用 chrome 的 console.log 方法会出现 undefined 的原因</a></p>
 </blockquote>
-<h2 id="call-apply-bind"><a href="#call-apply-bind" class="headerlink" title="call , apply , bind"></a>call , apply , bind</h2><p>&emsp;关于 call ,常见的使用自然就是 react 里。而 apply 在比较数组中最大最小值时可以取巧用到:</p>
+<h2 id="call-apply-bind"><a href="#call-apply-bind" class="headerlink" title="call , apply , bind"></a>call , apply , bind</h2><p>关于 call ,常见的使用自然就是 react 里。而 apply 在比较数组中最大最小值时可以取巧用到:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.min.apply(<span class="literal">null</span>,someArr)</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;用一句话来总结这两个,使用一个指定的 this 值和若干个参数值后调用某个函数。</p>
+<p>用一句话来总结这两个,使用一个指定的 this 值和若干个参数值后调用某个函数。</p>
 <blockquote>
-<p>&emsp;模拟实现 call 的<a href="https://github.com/mqyqingfeng/Blog/issues/11" target="_blank" rel="noopener">方法</a></p>
+<p>模拟实现 call 的<a href="https://github.com/mqyqingfeng/Blog/issues/11" target="_blank" rel="noopener">方法</a></p>
 </blockquote>
-<p>&emsp;bind 方法也很简单, 就是在 call 的基础上并不执行这个函数而是返回这个函数</p>
+<p>bind 方法也很简单, 就是在 call 的基础上并不执行这个函数而是返回这个函数</p>
 <blockquote>
 <p><em>MDN</em> 中的解释: bind()方法创建一个新的函数，在 bind()被调用时，这个新函数的 this 被 bind 的第一个参数指定，其余的参数将作为新函数的参数供调用时使用。</p>
 </blockquote>
