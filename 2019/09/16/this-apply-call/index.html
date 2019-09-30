@@ -44,7 +44,7 @@
         <div class="author-info__name text-center"></div>
         <div class="author-info__description text-center">只能自己努力找乐子了</div>
         <hr>
-        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">2</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">1</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">1</span></a>
+        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">3</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">2</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">2</span></a>
         </div>
       </div>
     </div>
@@ -64,6 +64,7 @@
           <div class="article-container" id="post-content"><h2 id="什么是-this"><a href="#什么是-this" class="headerlink" title="什么是 this"></a>什么是 this</h2><p>this 首先是一个对象(在严格模式下也会是 undefined),当然在 <em>MDN</em> 中也被形容为当前执行代码的环境对象。这么称呼的原因和函数的调用有关系,例如:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(name)</span><br><span class="line">&#125;</span><br><span class="line">test(<span class="string">'123'</span>)</span><br><span class="line">test.call(<span class="literal">undefined</span>,<span class="string">'123'</span>)</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
 <p>而这么调用的结果如下图:</p>
 <p><img src="/image/this-1.png" alt=" "></p>
 <p>实际上的函数调用便是如上图,也就是说 this 实际上就是我们传入的那个 undefined 也就是当前的 context 环境。</p>
@@ -132,6 +133,7 @@
         <div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/junior/">进阶</a>
         </div>
         <nav id="pagination">
+          <div class="prev-post pull-left"><a href="/2019/09/29/prototype-new/"><i class="fa fa-chevron-left">  </i><span>prototype new</span></a></div>
           <div class="next-post pull-right"><a href="/2019/09/10/hello-world/"><span>Hello World</span><i class="fa fa-chevron-right"></i></a></div>
         </nav>
       </div>
@@ -155,6 +157,7 @@
     <script src="/js/transition.js?version=1.6.1"></script>
     <script src="/js/scroll.js?version=1.6.1"></script>
     <script src="/js/head.js?version=1.6.1"></script>
+    <script src="/js/history.js?version=1.6.1"></script>
     <script>
       if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
         $('#nav').addClass('is-mobile')
