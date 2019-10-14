@@ -44,7 +44,7 @@
         <div class="author-info__name text-center"></div>
         <div class="author-info__description text-center">只能自己努力找乐子了</div>
         <hr>
-        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">3</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">2</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">2</span></a>
+        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">6</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">4</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">3</span></a>
         </div>
       </div>
     </div>
@@ -104,6 +104,11 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="keyword">char</span>* a, <span class="keyword">double</span> b);<span class="comment">//只有有强类型的语言才会有函数签名, 函数名+参数类型组合出签名</span></span><br></pre></td></tr></table></figure>
 
 <p>当试图从某个对象上使用属性或方法时:<br>1.首先 obj 内部属性<br>2.obj.__proto__ 也就是构造函数(constructor)的prototype上找<br>3.还是没有的话constructor.prototype.__proto__上找直到null (构造函数本身也是对象)</p>
+<blockquote>
+<p>constructor 自身是没法使用自己的原型链上的函数的</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$.prototype.test = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log($.test) <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="使用-prototype-继承的方法"><a href="#使用-prototype-继承的方法" class="headerlink" title="使用 prototype 继承的方法"></a>使用 prototype 继承的方法</h4><p>太多了, 由于我现在完全没有用过这些(设计模式), 在这里也只能给<a href="https://juejin.im/post/58f94c9bb123db411953691b" target="_blank" rel="noopener">文章</a>或红宝书(JavaScript高级程序设计)去看看吧</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">b.prototype = <span class="keyword">new</span> a()<span class="comment">//b.prototype.__Proto__ === a.prototype</span></span><br></pre></td></tr></table></figure>
 
@@ -131,6 +136,7 @@
         <div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Javascript/">Javascript</a>
         </div>
         <nav id="pagination">
+          <div class="prev-post pull-left"><a href="/2019/10/06/jquery-study/"><i class="fa fa-chevron-left">  </i><span>jquery 学习思考</span></a></div>
           <div class="next-post pull-right"><a href="/2019/09/16/this-apply-call/"><span>this,apply,call</span><i class="fa fa-chevron-right"></i></a></div>
         </nav>
       </div>
@@ -154,7 +160,6 @@
     <script src="/js/transition.js?version=1.6.1"></script>
     <script src="/js/scroll.js?version=1.6.1"></script>
     <script src="/js/head.js?version=1.6.1"></script>
-    <script src="/js/history.js?version=1.6.1"></script>
     <script>
       if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
         $('#nav').addClass('is-mobile')

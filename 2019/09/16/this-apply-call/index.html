@@ -44,7 +44,7 @@
         <div class="author-info__name text-center"></div>
         <div class="author-info__description text-center">只能自己努力找乐子了</div>
         <hr>
-        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">3</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">2</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">2</span></a>
+        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">6</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">4</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">3</span></a>
         </div>
       </div>
     </div>
@@ -111,12 +111,12 @@
 <blockquote>
 <p><a href="https://stackoverflow.com/questions/14633968/chrome-firefox-console-log-always-appends-a-line-saying-undefined" target="_blank" rel="noopener">使用 chrome 的 console.log 方法会出现 undefined 的原因</a></p>
 </blockquote>
-<h2 id="call-apply-bind"><a href="#call-apply-bind" class="headerlink" title="call , apply , bind"></a>call , apply , bind</h2><p>关于 call ,常见的使用自然就是 react 里。而 apply 在比较数组中最大最小值时可以取巧用到:</p>
+<h2 id="call-apply-bind"><a href="#call-apply-bind" class="headerlink" title="call , apply , bind"></a>call , apply , bind</h2><p>关于 call ,常见的使用自然是指定 this 。而 apply 在比较数组中最大最小值时也可以用到:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.min.apply(<span class="literal">null</span>,someArr)</span><br></pre></td></tr></table></figure>
 
-<p>用一句话来总结这两个,使用一个指定的 this 值和若干个参数值后调用某个函数。</p>
+<p>用一句话来总结, 指定 this 和若干个参数值后调用函数。</p>
 <blockquote>
-<p>模拟实现 call 的<a href="https://github.com/mqyqingfeng/Blog/issues/11" target="_blank" rel="noopener">方法</a></p>
+<p><a href="https://github.com/mqyqingfeng/Blog/issues/11" target="_blank" rel="noopener">模拟实现 call 的方法</a></p>
 </blockquote>
 <p>bind 方法也很简单, 就是在 call 的基础上并不执行这个函数而是返回这个函数</p>
 <blockquote>
@@ -157,7 +157,6 @@
     <script src="/js/transition.js?version=1.6.1"></script>
     <script src="/js/scroll.js?version=1.6.1"></script>
     <script src="/js/head.js?version=1.6.1"></script>
-    <script src="/js/history.js?version=1.6.1"></script>
     <script>
       if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
         $('#nav').addClass('is-mobile')
