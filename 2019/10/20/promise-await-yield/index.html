@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Hello World">
-    <meta name="keywords" content>
+    <meta name="description" content="promise-await-yield 异步三连">
+    <meta name="keywords" content="Javascript">
     <meta name="author">
     <meta name="copyright">
-    <title>Hello World | luckyray</title><link rel="shortcut icon" href="/favicons.ico">
+    <title>promise-await-yield 异步三连 | luckyray</title><link rel="shortcut icon" href="/favicons.ico">
     <link rel="stylesheet" href="/css/index.css?version=1.6.1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1">
     <link rel="dns-prefetch" href="https://cdn.staticfile.org">
@@ -37,7 +37,7 @@
         <div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span>
           <div class="sidebar-toc__progress-bar"></div>
         </div>
-        <div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+        <div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#历史演变情况"><span class="toc-number">1.</span> <span class="toc-text">历史演变情况</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#promise"><span class="toc-number">1.1.</span> <span class="toc-text">promise</span></a></li></ol></li></ol></div>
       </div>
       <div class="author-info hide">
         <div class="author-info__avatar text-center"><img src="/img/avatar.png"></div>
@@ -52,39 +52,34 @@
       <div id="top-container" style="background-image: url(http://img.luckyray.cn/896653.jpg)">
         <div id="page-header"><span class="pull-left"> <a id="site-name" href="/">luckyray</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div>
         <div id="post-info">
-          <div id="post-title">Hello World</div>
+          <div id="post-title">promise-await-yield 异步三连</div>
           <div id="post-meta">
-            <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-10
-            </time>
+            <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-20
+            </time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/进阶/">进阶</a>
           </div>
         </div>
       </div>
       <div class="layout" id="content-inner">
         <article id="post">
-          <div class="article-container" id="post-content"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+          <div class="article-container" id="post-content"><p>JavaScript 中使用异步的情况非常多, 因为 js 采取单线程, 如果某段代码处理时间过长, 后面的代码将一直等待其执行完毕。<br>由此产生的处理方案是, 任务队列与事件循环(event loop), 无论是最初的回调函数(并非异步专属), 还是后面解决 callback hell 而出现的 promise 等, 都是依靠在这个机制上的。</p>
+<blockquote>
+<p>主线程遇到异步函数时, 将其扔给异步模块, 继续执行主线程中剩下的部分, 当异步函数满足了执行要求时, 将回调函数放入任务队列中, 主线程完成后, 才会从任务队列中选择任务执行, 而 event loop 负责的是不断从任务队列中取代码, 详细请看-<a href="https://segmentfault.com/a/1190000011198232" target="_blank" rel="noopener">JavaScript 异步、栈、事件循环、任务队列</a></p>
+</blockquote>
+<h3 id="历史演变情况"><a href="#历史演变情况" class="headerlink" title="历史演变情况"></a>历史演变情况</h3><p>易嵌套的 callback <code>-&gt;</code> promise <code>-&gt;</code> promise 包装的 generator <code>-&gt;</code> generator 的语法糖 await</p>
+<h4 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h4><p>下方新构建一个 promise 的对象, 传入的是一个回调函数, 回调函数在执行时会被传入两个参数, resolve 与 reject, 这个resolve 其实就是在 then 函数中传入的回调</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        resolve(<span class="number">123</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br><span class="line">p.then(<span class="function">(<span class="params">data</span>)=&gt;</span><span class="built_in">console</span>.log(data))</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 </div>
         </article>
         <div class="post-copyright">
           <div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined"></a></span></div>
-          <div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://luckyray-fan.github.io/2019/09/10/hello-world/">https://luckyray-fan.github.io/2019/09/10/hello-world/</a></span></div>
+          <div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://luckyray-fan.github.io/2019/10/20/promise-await-yield/">https://luckyray-fan.github.io/2019/10/20/promise-await-yield/</a></span></div>
           <div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://luckyray-fan.github.io">luckyray</a>！</span></div>
         </div>
-        <div class="post-meta__tag-list">
+        <div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Javascript/">Javascript</a>
         </div>
         <nav id="pagination">
-          <div class="prev-post pull-left"><a href="/2019/09/16/this-apply-call/"><i class="fa fa-chevron-left">  </i><span>this,apply,call</span></a></div>
+          <div class="next-post pull-right"><a href="/2019/10/11/software-development-mode/"><span>软件开发 设计模式</span><i class="fa fa-chevron-right"></i></a></div>
         </nav>
       </div>
     </div>
