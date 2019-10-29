@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form" action="/uploadUrl" enctype="multipart/form-data" method="post">
+      <input type="file" name="upload" multiple>
+      <input type="button" value="upload" onclick="handler(this)">
+    </form>
+    <script>
+      var files;
+      function handler(e) {
+        var trueForm = document.getElementById('form');
+        var form = new FormData(trueForm);
+        files = form.getAll('upload');
+        iterate(0);
+      }
+      function iterate(num) {
+        Promise.all(
+          files.slice(num, num + 6).map(
+            (i) =>
+              new Promise((res, rej) => {
+                upload(i, res);
+              })
+          )
+        )
+          .then((result) => {
+            if (num >= files.length - 6) return;
+            iterate(num + 6);
+          })
+          .catch((result) => {
+            if (num >= files.length - 6) return;
+            iterate(num + 6);
+          });
+      }
+      function upload(i, res) {
+        var temForm = new FormData();
+        temForm.append('file', i);
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {
+          if (req.status == 200) {
+            res(); // 更改 Promise 状态
+          }
+        };
+        req.open('post', '/uploadUrl');
+        req.send(temForm);
+      }
+    </script>
+  </body>
+</html>

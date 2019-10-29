@@ -19,7 +19,7 @@ class MyPromise {
 
       // 如果 `res` 是 thenable（带有then方法的对象）
       // 将锁定 promise 来保持跟 thenable 的状态一致
-      if (res !== null && typeof res.then === 'function') {
+      if (res && typeof res.then === 'function') {
         // 在这种情况下，这个 promise 是 resolved，但是仍处于 'PENDING' 状态
         // 这就是 ES6 规范中说的"一个 resolved 的 promise"，可能处在 pending, fulfilled 或者 rejected 状态
         // http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects
@@ -31,10 +31,8 @@ class MyPromise {
       // If somebody called `.then()` while this promise was pending, need
       // to call their `onFulfilled()` function
       for (const { onFulfilled } of this.$chained) {
-        onFulfilled(res);
+        setTimeout(() => onFulfilled(res), 0);
       }
-
-      return res;
     };
     const reject = (err) => {
       if (this.$state !== 'PENDING') {
@@ -75,7 +73,7 @@ class MyPromise {
           reject(_err);
         }
       };
-      console.log(this === self);
+      // console.log(this === self);
       if (this.$state === 'FULFILLED') {
         _onFulfilled(this.$internalValue);
       } else if (this.$state === 'REJECTED') {
@@ -86,8 +84,30 @@ class MyPromise {
     });
   }
 }
-var p = new MyPromise((resolve, reject) => {
-  setTimeout(() => console.log(resolve(123)), 2000);
-}).then((res) => {
-  setTimeout(() => console.log(res), 200);
-});
+function test(promise) {
+  new promise((resolve, reject) => {
+    setTimeout(() => console.log(resolve(123), 456), 2000);
+  })
+    .then((res) => {
+      console.log(789);
+      setTimeout(() => console.log(res), 200);
+    })
+    .then((res) => {
+      console.log(1000);
+    });
+}
+test(MyPromise);
+test(MyPromise);
+setTimeout(() => {
+  console.log('-- '.repeat(10));
+  test(Promise);
+  test(Promise);
+  setTimeout(() => {
+    console.log('-- '.repeat(10));
+    test(MyPromise);
+    setTimeout(() => {
+      console.log('-- '.repeat(10));
+      test(Promise);
+    }, 3000);
+  }, 3000);
+}, 3000);
