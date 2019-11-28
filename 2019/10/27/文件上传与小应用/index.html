@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="文件上传与小应用">
-    <meta name="keywords" content>
+    <meta name="keywords" content="nodejs">
     <meta name="author">
     <meta name="copyright">
     <title>文件上传与小应用 | luckyray</title><link rel="shortcut icon" href="/favicons.ico">
@@ -44,7 +44,7 @@
         <div class="author-info__name text-center"></div>
         <div class="author-info__description text-center">只能自己努力找乐子了</div>
         <hr>
-        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">8</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">4</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">3</span></a>
+        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">15</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">7</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@
           <div id="post-title">文件上传与小应用</div>
           <div id="post-meta">
             <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-27
-            </time>
+            </time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/tools/">tools</a>
           </div>
         </div>
       </div>
@@ -65,33 +65,40 @@
 <h3 id="后端的上传处理-nodejs"><a href="#后端的上传处理-nodejs" class="headerlink" title="后端的上传处理 - nodejs"></a>后端的上传处理 - nodejs</h3><h4 id="原生的"><a href="#原生的" class="headerlink" title="原生的"></a>原生的</h4><p>从 nodejs 原生说起</p>
 <blockquote>
 <p>详细可以阅读 <a href="https://www.zhihu.com/question/58118565" target="_blank" rel="noopener">http：文件上传背后发生了什么？</a></p>
+</blockquote>
 <ol>
 <li>服务器接收到文件数据, 下文的 req 便是 <code>http.createSever(function(req, res) {})</code> 里往匿名回调中传入的参数</li>
 </ol>
-</blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(chunk)</span><br><span class="line">    body += chunk;</span><br><span class="line">  &#125;); <span class="comment">//目测是按 ascii 输出, 因为没有出现中文乱码   Ð­g0RÇÄ+ÓG\I.PÒUeOÓZáQµ(Wk</span></span><br><span class="line">  <span class="comment">// 当然 每次在 data 事件中触发抓获的数据块是一个 Buffer 或 string, http.incomingMessage 继承了 stream, 这里是 string, 可以用 typeof 看</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>post数据的传输是可能分包的，因此采用监听方式<br>使用 node –inspect 查看的内容如下<br><img src="/image/fileupload-2.png" alt="chunk 内容"></p>
+<p>post数据的传输是可能分包的，因此采用监听方式<br>使用 node –inspect 查看的内容如下</p>
+</blockquote>
+<p><img src="/image/fileupload-2.png" alt="chunk 内容"></p>
 <ol start="2">
 <li>对数据进行处理</li>
+</ol>
+<blockquote>
+<ol>
 <li>将请求报文转为对象</li>
 <li>判断图片文件, 提取信息</li>
-<li>获取文件二进制数据<br>http 请求报文结构为: 请求行（request line)、消息头部（header) 、空行(CRLF) 、请求正文, 详细了解 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Messages" target="_blank" rel="noopener">HTTP消息</a><br><img src="/image/fileupload-1.png" alt="http 报文内容"><br>使用 <code>querystring.parse</code> 获取信息<br><img src="/image/fileupload-3.png" alt="解析出来的 file 对象"></li>
+<li>获取文件二进制数据<br>http 请求报文结构为: 请求行（request line)、消息头部（header) 、空行(CRLF) 、请求正文, 详细了解 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Messages" target="_blank" rel="noopener">HTTP消息</a><br><img src="/image/fileupload-1.png" alt="http 报文内容"></li>
 </ol>
 </blockquote>
+<p>使用 <code>querystring.parse</code> 获取信息</p>
+<p><img src="/image/fileupload-3.png" alt="解析出来的 file 对象"></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">req.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> file = querystring.parse(body, <span class="string">'\r\n'</span>, <span class="string">':'</span>);</span><br><span class="line">    <span class="comment">// console.log(file);将整个 Http 请求报文解析为一个对象</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 只处理图片文件</span></span><br><span class="line">    <span class="keyword">if</span> (file[<span class="string">'Content-Type'</span>].indexOf(<span class="string">'image'</span>) !== <span class="number">-1</span>) &#123;</span><br><span class="line">      <span class="comment">//获取文件名</span></span><br><span class="line">      <span class="keyword">var</span> fileInfo = file[<span class="string">'Content-Disposition'</span>].split(<span class="string">'; '</span>);</span><br><span class="line">      <span class="keyword">for</span> (value <span class="keyword">in</span> fileInfo) &#123;</span><br><span class="line">        <span class="keyword">if</span> (fileInfo[value].indexOf(<span class="string">'filename='</span>) != <span class="number">-1</span>) &#123;</span><br><span class="line">          fileName = fileInfo[value].substring(<span class="number">10</span>, fileInfo[value].length - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">if</span> (fileName.indexOf(<span class="string">'\\'</span>) != <span class="number">-1</span>) &#123;</span><br><span class="line">            fileName = fileName.substring(fileName.lastIndexOf(<span class="string">'\\'</span>) + <span class="number">1</span>);</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="comment">// console.log('文件名: ' + fileName);</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 获取图片类型(如：image/gif 或 image/png))</span></span><br><span class="line">      <span class="keyword">var</span> entireData = body.toString(),</span><br><span class="line">        contentType = file[<span class="string">'Content-Type'</span>].substring(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">//获取文件二进制数据开始位置，即contentType的结尾</span></span><br><span class="line">      <span class="keyword">var</span> upperBoundary = entireData.indexOf(contentType) + contentType.length;</span><br><span class="line">      <span class="keyword">var</span> shorterData = entireData.substring(upperBoundary);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 替换开始位置的空格</span></span><br><span class="line">      <span class="keyword">var</span> binaryDataAlmost = shorterData.replace(<span class="regexp">/^\s\s*/</span>, <span class="string">''</span>).replace(<span class="regexp">/\s\s*$/</span>, <span class="string">''</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 去除数据末尾的额外数据，即: "--"+ boundary + "--"</span></span><br><span class="line">      <span class="keyword">var</span> binaryData = binaryDataAlmost.substring(</span><br><span class="line">        <span class="number">0</span>,</span><br><span class="line">        binaryDataAlmost.indexOf(<span class="string">'--'</span> + boundary + <span class="string">'--'</span>)</span><br><span class="line">      );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>http 上传文件, 实际上是由协议 RFC1867 对 form 表单扩展而来的, 如果有兴趣模拟 http 上传文件, 可以看这篇文章, 作者用的是 c# - <a href="http://blog.zhaojie.me/2011/03/html-form-file-uploading-programming.html" target="_blank" rel="noopener">模拟HTML表单上传文件（RFC 1867）</a></p>
+</blockquote>
 <ol start="3">
 <li>将数据写入文件</li>
 </ol>
-</blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fs.writeFile(<span class="string">'./image/'</span> + fileName, binaryData, <span class="string">'binary'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// res.writeHead(302, &#123;</span></span><br><span class="line">        <span class="comment">//   Location: '/' 文件的写入需要buffer类型的数据</span></span><br><span class="line">        <span class="comment">// &#125;);</span></span><br><span class="line">        res.writeHead(<span class="number">200</span>); <span class="comment">//没写end导致变成了持久连接</span></span><br><span class="line">        res.end(<span class="string">'123'</span>);</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>如果只接收信息不返回的话, 会成为持续连接, 由于浏览器对连接数有最大限制, 所以会出现同时上传文件超过6个很慢的 bug<br>详细可以看 <a href="https://stackoverflow.com/questions/985431/max-parallel-http-connections-in-a-browser" target="_blank" rel="noopener">Max parallel http connections in a browser?</a></p>
+<p>如果只接收信息不返回的话, 会成为持续连接, 由于浏览器对连接数有最大限制, 所以会出现同时上传文件超过6个很慢的 bug 原文出处 - <a href="https://stackoverflow.com/questions/985431/max-parallel-http-connections-in-a-browser" target="_blank" rel="noopener">Max parallel http connections in a browser?</a></p>
 </blockquote>
 <h4 id="框架的"><a href="#框架的" class="headerlink" title="框架的"></a>框架的</h4><p>将来用到再说, 除了原理或者有趣的东西, api 调用什么的是不会调查的, 当然用过的话会写就是了</p>
 <h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>首先, 上传文件肯定用的是 post , 因为 get 传参放在 url 里有最大值, 而 post 放在 request.body 中没有限制。</p>
@@ -118,14 +125,14 @@
 <p>详细提交方式可以看  - <a href="http://www.anyrt.com/blog/list/submit.html" target="_blank" rel="noopener">form表单提交方式</a></p>
 <p>另外插件 jquery.form.js 不跳转上传, 原理为: ajax + 取消默认事件如果不支持 XMLHttpRequest 2级使用 target + iframe</p>
 <blockquote>
-<p>由于懒, 不想用 postman 之类的, 直接用 node 来看请求报文, 详细可以阅读 - <a href="https://stackoverflow.com/questions/5725430/http-test-server-accepting-get-post-requests/52351480#52351480" target="_blank" rel="noopener">HTTP test server accepting GET/POST requests</a></p>
+<p>由于懒, 不想用 postman 之类的, 直接用 node 来看请求报文, 使用 nodejs 监听源自本机上所有的访问次端口的请求, 并打印请求中的信息, 原文来自 - <a href="https://stackoverflow.com/questions/5725430/http-test-server-accepting-get-post-requests/52351480" target="_blank" rel="noopener">HTTP test server accepting GET/POST requests</a></p>
 </blockquote>
 <h4 id="ajax-上传"><a href="#ajax-上传" class="headerlink" title="ajax 上传"></a>ajax 上传</h4><p>到了 ajax 的时候, 可以用 FormData 对象管理表单数据, FormData 类型其实是在 XMLHttpRequest 2级定义的, 可以利用 <code>HTMLFormElement</code> 对象初始化来获得与表单相同的值, 相比一个个获取表单值再上传方便</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">req.open(<span class="string">'post'</span>, <span class="string">'/uploadUrl'</span>);</span><br><span class="line"><span class="keyword">var</span> test = <span class="keyword">new</span> FormData()</span><br><span class="line">test.append(<span class="string">"k1"</span>, <span class="string">"v1"</span>);</span><br><span class="line">req.send(test); <span class="comment">//自动设置 content-type: multipart/form-data</span></span><br><span class="line">req.open(<span class="string">'post'</span>, <span class="string">'/uploadUrl'</span>);</span><br><span class="line">req.send(<span class="number">123</span>) <span class="comment">//text/plain</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="/image/fileupload-4.png" alt="content-type 自动设置"></p>
 <blockquote>
-<p>详细可以看 - <a href="https://segmentfault.com/q/1010000018679505#a-1020000018684717" target="_blank" rel="noopener">axios的content-type是自动设置的吗？</a></p>
+<p>FormData 会自动在上传的时候设置 content-type, 原文来自 - <a href="https://segmentfault.com/q/1010000018679505#a-1020000018684717" target="_blank" rel="noopener">axios的content-type是自动设置的吗？</a></p>
 </blockquote>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>最后来写下我的应用:</p>
 <blockquote>
@@ -140,6 +147,7 @@
 <ul>
 <li><a href="https://nodejs.org/zh-cn/docs/guides/anatomy-of-an-http-transaction/" target="_blank" rel="noopener">一次 HTTP 传输解析</a></li>
 <li><a href="https://juejin.im/post/5da14778f265da5bb628e590#heading-7" target="_blank" rel="noopener">写给新手前端的各种文件上传攻略，从小图片到大文件断点续传</a></li>
+<li><a href="https://learnku.com/articles/25881" target="_blank" rel="noopener">99%的人都理解错了 HTTP 中 GET 与 POST 的区别</a></li>
 </ul>
 </div>
         </article>
@@ -148,9 +156,10 @@
           <div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://luckyray-fan.github.io/2019/10/27/文件上传与小应用/">https://luckyray-fan.github.io/2019/10/27/文件上传与小应用/</a></span></div>
           <div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://luckyray-fan.github.io">luckyray</a>！</span></div>
         </div>
-        <div class="post-meta__tag-list">
+        <div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/nodejs/">nodejs</a>
         </div>
         <nav id="pagination">
+          <div class="prev-post pull-left"><a href="/2019/11/01/算法/"><i class="fa fa-chevron-left">  </i><span>算法</span></a></div>
           <div class="next-post pull-right"><a href="/2019/10/20/promise-await-yield/"><span>promise-await-yield 异步三连</span><i class="fa fa-chevron-right"></i></a></div>
         </nav>
       </div>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="源码分析">
+    <meta name="keywords" content="总结">
+    <meta name="author">
+    <meta name="copyright">
+    <title>源码分析 | luckyray</title><link rel="shortcut icon" href="/favicons.ico">
+    <link rel="stylesheet" href="/css/index.css?version=1.6.1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1">
+    <link rel="dns-prefetch" href="https://cdn.staticfile.org">
+    <link rel="dns-prefetch" href="https://cdn.bootcss.com">
+    <link rel="dns-prefetch" href="https://creativecommons.org">
+    <script>
+      var GLOBAL_CONFIG = {
+        root: '/',
+        algolia: undefined,
+        localSearch: undefined,
+        copy: {
+          success: '复制成功',
+          error: '复制错误',
+          noSupport: '浏览器不支持'
+        }
+      }
+    </script>
+  </head>
+  <body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i>
+    <div id="sidebar">
+      <div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span>
+        <hr>
+      </div>
+      <div class="sidebar-toc">
+        <div class="sidebar-toc__title">目录</div>
+        <div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span>
+          <div class="sidebar-toc__progress-bar"></div>
+        </div>
+        <div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目的"><span class="toc-number">1.</span> <span class="toc-text">目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析方法"><span class="toc-number">2.</span> <span class="toc-text">分析方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码好坏评价"><span class="toc-number">3.</span> <span class="toc-text">代码好坏评价</span></a></li></ol></div>
+      </div>
+      <div class="author-info hide">
+        <div class="author-info__avatar text-center"><img src="/img/avatar.png"></div>
+        <div class="author-info__name text-center"></div>
+        <div class="author-info__description text-center">只能自己努力找乐子了</div>
+        <hr>
+        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">15</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">7</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
+        </div>
+      </div>
+    </div>
+    <div id="content-outer">
+      <div id="top-container" style="background-image: url(http://img.luckyray.cn/896653.jpg)">
+        <div id="page-header"><span class="pull-left"> <a id="site-name" href="/">luckyray</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div>
+        <div id="post-info">
+          <div id="post-title">源码分析</div>
+          <div id="post-meta">
+            <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-04
+            </time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/源码分析/">源码分析</a>
+          </div>
+        </div>
+      </div>
+      <div class="layout" id="content-inner">
+        <article id="post">
+          <div class="article-container" id="post-content"><ol>
+<li>凡是想要了解实现原理的就会去分析</li>
+<li>遇到有趣的就更要上了</li>
+<li>难也没关系, 来一个干一个, 来两个宰一双 &gt;&lt;</li>
+<li>(算法, 操作系统, 计网, 编译原理, 设计模式, 软件工程, 数学(机器学习, 图像处理))</li>
+</ol>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>学习实现原理, 代码组织, 满足好奇心</p>
+<h2 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h2><ol start="0">
+<li>需要有小的 demo 展示在最开始的地方</li>
+<li><strong>必须</strong>配置好相关环境, 部署好代码</li>
+<li>检查代码结构, 确认入口</li>
+<li>对于比较简单的, 走一遍<strong>流程</strong>, 困难的, 针对各个<strong>函数</strong></li>
+<li>分析功能的实现的<strong>最简执行单元</strong>, 判断参数重载, 错误捕捉等其他部分</li>
+<li>对其进行总结, 评价</li>
+</ol>
+<blockquote>
+<p><del>对于比较难的, 不要光看, clone 下来撸一会再简单实现一下</del>, <strong>必须要用复制下来看</strong><br>看到一个 console.error 打印堆栈的方法<br>现在 19.11.5 暂且对参数重载, 错误捕捉等不做要求, 假定所有输入调用<strong>常见且规范</strong></p>
+</blockquote>
+<h2 id="代码好坏评价"><a href="#代码好坏评价" class="headerlink" title="代码好坏评价"></a>代码好坏评价</h2><ol>
+<li>功能特性</li>
+<li>执行性能</li>
+<li>可读性</li>
+<li>文档与注释</li>
+<li>可扩展性</li>
+</ol>
+<blockquote>
+<p>关于可读性, 如果没有复用就不要分出函数来, 另外函数行数也不应该过长,最多80行, 3~40合适(等经验多了再看看)<br>19.11.6 - 没有踩过坑, 可扩展性部分较难判断出来<br>代码之外的, star数, 更新频率, issue<br>看看更加成熟的观点 - <a href="https://juejin.im/post/5ba9867a6fb9a05d1f220d2b" target="_blank" rel="noopener">精读《12 个评估 JS 库你需要关心的事》</a></p>
+</blockquote>
+</div>
+        </article>
+        <div class="post-copyright">
+          <div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined"></a></span></div>
+          <div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://luckyray-fan.github.io/2019/11/04/源码分析/">https://luckyray-fan.github.io/2019/11/04/源码分析/</a></span></div>
+          <div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://luckyray-fan.github.io">luckyray</a>！</span></div>
+        </div>
+        <div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/总结/">总结</a>
+        </div>
+        <nav id="pagination">
+          <div class="prev-post pull-left"><a href="/2019/11/26/数据结构与算法设计/"><i class="fa fa-chevron-left">  </i><span>数据结构与算法设计</span></a></div>
+          <div class="next-post pull-right"><a href="/2019/11/04/打字动画效果/"><span>打字动画效果分析</span><i class="fa fa-chevron-right"></i></a></div>
+        </nav>
+      </div>
+    </div>
+    <footer class="footer-bg" style="background-image: url(http://img.luckyray.cn/896653.jpg)">
+      <div class="layout" id="footer">
+        <div class="copyright">&copy;2019 By null</div>
+        <div class="framework-info"><span>驱动 - </span><a href="#"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="#"><span>diary</span></a></div>
+      </div>
+    </footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script>
+    <script src="/js/utils.js?version=1.6.1"></script>
+    <script src="/js/fancybox.js?version=1.6.1"></script>
+    <script src="/js/sidebar.js?version=1.6.1"></script>
+    <script src="/js/copy.js?version=1.6.1"></script>
+    <script src="/js/fireworks.js?version=1.6.1"></script>
+    <script src="/js/transition.js?version=1.6.1"></script>
+    <script src="/js/scroll.js?version=1.6.1"></script>
+    <script src="/js/head.js?version=1.6.1"></script>
+    <script>
+      if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        $('#nav').addClass('is-mobile')
+        $('footer').addClass('is-mobile')
+      }
+    </script>
+  </body>
+</html>
