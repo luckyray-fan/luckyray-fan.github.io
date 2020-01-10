@@ -38,3 +38,4 @@ module.exports = {
     minimize: true
   },
 };
+</script>

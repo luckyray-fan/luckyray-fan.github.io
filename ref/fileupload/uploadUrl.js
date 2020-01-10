@@ -69,7 +69,7 @@ function parseFile(req, res) {
         binaryDataAlmost.indexOf('--' + boundary + '--')
       );
       // 保存文件
-      // res.write('<head><meta charset="utf-8"/></head>');
+      // res.write('<head><meta charset="utf-8"></head>');
       // res.end('123');
       fs.writeFile('./image/' + fileName, binaryData, 'binary', function(err) {
         // res.writeHead(302, {

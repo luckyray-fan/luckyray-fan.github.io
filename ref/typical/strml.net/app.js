@@ -225,3 +225,4 @@ function createWorkBox() {
     true
   );
 }
+</style>

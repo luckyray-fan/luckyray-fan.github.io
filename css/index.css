@@ -1995,9 +1995,3 @@ img:hover {
 .author-info__avatar {
   visibility: hidden;
 }
-p {
-  text-indent: 2em;
-}
-blockquote p {
-  text-indent: 0;
-}

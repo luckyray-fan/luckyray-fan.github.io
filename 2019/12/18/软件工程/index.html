@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="软件工程">
+    <meta name="keywords" content="学科">
+    <meta name="author">
+    <meta name="copyright">
+    <title>软件工程 | luckyray</title><link rel="shortcut icon" href="/favicons.ico">
+    <link rel="stylesheet" href="/css/index.css?version=1.6.1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1">
+    <link rel="dns-prefetch" href="https://cdn.staticfile.org">
+    <link rel="dns-prefetch" href="https://cdn.bootcss.com">
+    <link rel="dns-prefetch" href="https://creativecommons.org">
+    <script>
+      var GLOBAL_CONFIG = {
+        root: '/',
+        algolia: undefined,
+        localSearch: undefined,
+        copy: {
+          success: '复制成功',
+          error: '复制错误',
+          noSupport: '浏览器不支持'
+        }
+      }
+    </script>
+  </head>
+  <body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i>
+    <div id="sidebar">
+      <div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span>
+        <hr>
+      </div>
+      <div class="sidebar-toc">
+        <div class="sidebar-toc__title">目录</div>
+        <div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span>
+          <div class="sidebar-toc__progress-bar"></div>
+        </div>
+        <div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-下山东大学软件工程复习"><span class="toc-number">1.</span> <span class="toc-text">2019 下山东大学软件工程复习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一章-软件工程概述"><span class="toc-number">1.1.</span> <span class="toc-text">第一章 软件工程概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SE"><span class="toc-number">1.1.1.</span> <span class="toc-text">SE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误-缺陷-失败的含义与联系-举例"><span class="toc-number">1.1.2.</span> <span class="toc-text">错误, 缺陷, 失败的含义与联系 (举例)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件质量应该如何来衡量"><span class="toc-number">1.1.3.</span> <span class="toc-text">软件质量应该如何来衡量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#现代软件工程的几个阶段及各个阶段文档-写在方括号中"><span class="toc-number">1.1.4.</span> <span class="toc-text">现代软件工程的几个阶段及各个阶段文档 (写在方括号中)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是重用-抽象等现代软件工程主要概念-软件工程的Wasserman-规范"><span class="toc-number">1.1.5.</span> <span class="toc-text">什么是重用, 抽象等现代软件工程主要概念 (软件工程的Wasserman 规范)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二章-过程和生命周期的建模"><span class="toc-number">1.2.</span> <span class="toc-text">第二章 过程和生命周期的建模</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是软件过程-其重要性是什么-包含几个阶段-软件生命周期"><span class="toc-number">1.2.1.</span> <span class="toc-text">什么是软件过程, 其重要性是什么, 包含几个阶段, 软件生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#瀑布模型和各阶段文档和优缺点"><span class="toc-number">1.2.2.</span> <span class="toc-text">瀑布模型和各阶段文档和优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型的概念与用途"><span class="toc-number">1.2.3.</span> <span class="toc-text">原型的概念与用途</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#论述分阶段开发模型的含义-其基本分类及特点是什么"><span class="toc-number">1.2.4.</span> <span class="toc-text">论述分阶段开发模型的含义, 其基本分类及特点是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#螺旋模型四个象限的任务及四重循环的含义"><span class="toc-number">1.2.5.</span> <span class="toc-text">螺旋模型四个象限的任务及四重循环的含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是UP，-RUP，进化式迭代等市场流行的过程模型"><span class="toc-number">1.2.6.</span> <span class="toc-text">什么是UP， RUP，进化式迭代等市场流行的过程模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三章-计划和管理项目"><span class="toc-number">1.3.</span> <span class="toc-text">第三章 计划和管理项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是项目进度-活动-里程碑"><span class="toc-number">1.3.1.</span> <span class="toc-text">什么是项目进度, 活动, 里程碑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#⚡-如何计算软件项目活动图的关键路径-冗余时间-最早和最迟开始时间"><span class="toc-number">1.3.2.</span> <span class="toc-text">⚡ 如何计算软件项目活动图的关键路径, 冗余时间, 最早和最迟开始时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件项目团队组织的基本结构"><span class="toc-number">1.3.3.</span> <span class="toc-text">软件项目团队组织的基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#试述COCOMO模型的三个阶段基本工作原理或含义"><span class="toc-number">1.3.4.</span> <span class="toc-text">试述COCOMO模型的三个阶段基本工作原理或含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是软件风险-了解主要风险管理活动-有几种降低风险的策略"><span class="toc-number">1.3.5.</span> <span class="toc-text">什么是软件风险, 了解主要风险管理活动, 有几种降低风险的策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#⚡弄懂活动图基本原理-参考课本-找出课后练习题图3-23和3-24的关键路径"><span class="toc-number">1.3.6.</span> <span class="toc-text">⚡弄懂活动图基本原理(参考课本), 找出课后练习题图3.23和3.24的关键路径</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四章-获取需求"><span class="toc-number">1.4.</span> <span class="toc-text">第四章 获取需求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#需求的含义是什么"><span class="toc-number">1.4.1.</span> <span class="toc-text">需求的含义是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需求阶段作为一个工程，其确定需求的过程是什么"><span class="toc-number">1.4.2.</span> <span class="toc-text">需求阶段作为一个工程，其确定需求的过程是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#举例说明获取需求时-若有冲突发生时-如何考虑根据优先级进行需求分类"><span class="toc-number">1.4.3.</span> <span class="toc-text">举例说明获取需求时, 若有冲突发生时, 如何考虑根据优先级进行需求分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需求文档分为哪两类"><span class="toc-number">1.4.4.</span> <span class="toc-text">需求文档分为哪两类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是功能性需求和非功能性需求-质量需求-设计约束-过程约束-如何区分"><span class="toc-number">1.4.5.</span> <span class="toc-text">什么是功能性需求和非功能性需求/质量需求, 设计约束, 过程约束, 如何区分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#⚡了解DFD-数据流-图的构成及画法"><span class="toc-number">1.4.6.</span> <span class="toc-text">⚡了解DFD(数据流)图的构成及画法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第五章-设计体系结构"><span class="toc-number">1.5.</span> <span class="toc-text">第五章 设计体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是软件体系结构-设计模式-设计公约-设计"><span class="toc-number">1.5.1.</span> <span class="toc-text">什么是软件体系结构, 设计模式, 设计公约, 设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件设计过程模型的几个阶段"><span class="toc-number">1.5.2.</span> <span class="toc-text">软件设计过程模型的几个阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#论述设计用户界面应考虑的问题"><span class="toc-number">1.5.3.</span> <span class="toc-text">论述设计用户界面应考虑的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#举例说明耦合与内聚的基本分类。以及各个分类的含义与特征"><span class="toc-number">1.5.4.</span> <span class="toc-text">举例说明耦合与内聚的基本分类。以及各个分类的含义与特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件过程中复审的概念-设计复审的重要性"><span class="toc-number">1.5.5.</span> <span class="toc-text">软件过程中复审的概念, 设计复审的重要性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第六章-考虑对象"><span class="toc-number">1.6.</span> <span class="toc-text">第六章 考虑对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是设计模式"><span class="toc-number">1.6.1.</span> <span class="toc-text">什么是设计模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#了解OO设计的基本原则"><span class="toc-number">1.6.2.</span> <span class="toc-text">了解OO设计的基本原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#了解OO开发有何优势"><span class="toc-number">1.6.3.</span> <span class="toc-text">了解OO开发有何优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OO开发过程有几个步骤"><span class="toc-number">1.6.4.</span> <span class="toc-text">OO开发过程有几个步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#掌握用例图的组成和画法-用例的几个要素的含义"><span class="toc-number">1.6.5.</span> <span class="toc-text">掌握用例图的组成和画法, 用例的几个要素的含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用例图、类图等针对面向对象的项目开发的意义是什么"><span class="toc-number">1.6.6.</span> <span class="toc-text">用例图、类图等针对面向对象的项目开发的意义是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#熟悉类图中各个类之间的基本关系分类及其含义。"><span class="toc-number">1.6.7.</span> <span class="toc-text">熟悉类图中各个类之间的基本关系分类及其含义。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#熟悉用例图、类图的组成和画法"><span class="toc-number">1.6.8.</span> <span class="toc-text">熟悉用例图、类图的组成和画法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#了解UML其他图示结构的基本用途"><span class="toc-number">1.6.9.</span> <span class="toc-text">了解UML其他图示结构的基本用途</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第七章-编写程序"><span class="toc-number">1.7.</span> <span class="toc-text">第七章 编写程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一般性的编程原则应该从哪三个方面考虑"><span class="toc-number">1.7.1.</span> <span class="toc-text">一般性的编程原则应该从哪三个方面考虑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在编写程序内部文档时-除了HCB外-还应添加什么注释信息-注意什么"><span class="toc-number">1.7.2.</span> <span class="toc-text">在编写程序内部文档时, 除了HCB外, 还应添加什么注释信息, 注意什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是极限编程-XP-以及派对编程"><span class="toc-number">1.7.3.</span> <span class="toc-text">什么是极限编程(XP), 以及派对编程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第八章-测试程序"><span class="toc-number">1.8.</span> <span class="toc-text">第八章 测试程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#了解-产生软件缺陷的原因"><span class="toc-number">1.8.1.</span> <span class="toc-text">了解 产生软件缺陷的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有几种主要的缺陷类型"><span class="toc-number">1.8.2.</span> <span class="toc-text">有几种主要的缺陷类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是正交缺陷分类"><span class="toc-number">1.8.3.</span> <span class="toc-text">什么是正交缺陷分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试的各个阶段及其任务"><span class="toc-number">1.8.4.</span> <span class="toc-text">测试的各个阶段及其任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#掌握测试的方法—-黑盒、白盒的概念"><span class="toc-number">1.8.5.</span> <span class="toc-text">掌握测试的方法—-黑盒、白盒的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是单元测试"><span class="toc-number">1.8.6.</span> <span class="toc-text">什么是单元测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#黑盒白盒方法各自的分类-测试用例的设计和给出方法"><span class="toc-number">1.8.7.</span> <span class="toc-text">黑盒白盒方法各自的分类, 测试用例的设计和给出方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#⚡如何面对一个命题-设计和给出测试用例的问题"><span class="toc-number">1.8.8.</span> <span class="toc-text">⚡如何面对一个命题, 设计和给出测试用例的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集成测试及其主要方法的分类-驱动-桩的概念"><span class="toc-number">1.8.9.</span> <span class="toc-text">集成测试及其主要方法的分类, (驱动, 桩的概念)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第九章-测试系统"><span class="toc-number">1.9.</span> <span class="toc-text">第九章 测试系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#系统测试的主要步骤及各自含义"><span class="toc-number">1.9.1.</span> <span class="toc-text">系统测试的主要步骤及各自含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能测试的含义极其作用和基本指导原则"><span class="toc-number">1.9.2.</span> <span class="toc-text">功能测试的含义极其作用和基本指导原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能测试的含义与作用与主要分类"><span class="toc-number">1.9.3.</span> <span class="toc-text">性能测试的含义与作用与主要分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#确认测试概念-确认测试分类"><span class="toc-number">1.9.4.</span> <span class="toc-text">确认测试概念, 确认测试分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是alpha测试-β测试"><span class="toc-number">1.9.5.</span> <span class="toc-text">什么是alpha测试, β测试,</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是安装测试"><span class="toc-number">1.9.6.</span> <span class="toc-text">什么是安装测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件工程模拟试卷2019年下（A）"><span class="toc-number">1.10.</span> <span class="toc-text">软件工程模拟试卷2019年下（A）</span></a></li></ol></li></ol></div>
+      </div>
+      <div class="author-info hide">
+        <div class="author-info__avatar text-center"><img src="/img/avatar.png"></div>
+        <div class="author-info__name text-center"></div>
+        <div class="author-info__description text-center">只能自己努力找乐子了</div>
+        <hr>
+        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">22</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
+        </div>
+      </div>
+    </div>
+    <div id="content-outer">
+      <div id="top-container" style="background-image: url(http://img.luckyray.cn/896653.jpg)">
+        <div id="page-header"><span class="pull-left"> <a id="site-name" href="/">luckyray</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div>
+        <div id="post-info">
+          <div id="post-title">软件工程</div>
+          <div id="post-meta">
+            <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-12-18
+            </time>
+          </div>
+        </div>
+      </div>
+      <div class="layout" id="content-inner">
+        <article id="post">
+          <div class="article-container" id="post-content"><h1 id="2019-下山东大学软件工程复习"><a href="#2019-下山东大学软件工程复习" class="headerlink" title="2019 下山东大学软件工程复习"></a>2019 下山东大学软件工程复习</h1><h2 id="第一章-软件工程概述"><a href="#第一章-软件工程概述" class="headerlink" title="第一章 软件工程概述"></a>第一章 软件工程概述</h2><h3 id="SE"><a href="#SE" class="headerlink" title="SE"></a>SE</h3><ul>
+<li>定义: 采用工具、技术等用来解决现实问题的综合过程</li>
+<li>目的</li>
+<li>方法: 面向对象, 结构化, 面向过程等模式</li>
+<li>作用: 付出较低的开发成本, 达到要求的软件功能, 能按时完成, 及时交付</li>
+</ul>
+<h3 id="错误-缺陷-失败的含义与联系-举例"><a href="#错误-缺陷-失败的含义与联系-举例" class="headerlink" title="错误, 缺陷, 失败的含义与联系 (举例)"></a>错误, 缺陷, 失败的含义与联系 (举例)</h3><ul>
+<li>错误: 开发中人为的错误, 例如需求说明, 代码中的错误</li>
+<li>缺陷: 缺陷是程序功能中出现的问题</li>
+<li>失败: 软件运行时出现的故障</li>
+<li>联系: 软件开发时人为的错误导致了软件的缺陷, 一个错误可能导致若干个缺陷，但缺陷不一定导致失败</li>
+</ul>
+<h3 id="软件质量应该如何来衡量"><a href="#软件质量应该如何来衡量" class="headerlink" title="软件质量应该如何来衡量"></a>软件质量应该如何来衡量</h3><ul>
+<li>产品的质量</li>
+<li>生产过程中的质量</li>
+<li>使用时的商业背景的质量</li>
+</ul>
+<h3 id="现代软件工程的几个阶段及各个阶段文档-写在方括号中"><a href="#现代软件工程的几个阶段及各个阶段文档-写在方括号中" class="headerlink" title="现代软件工程的几个阶段及各个阶段文档 (写在方括号中)"></a>现代软件工程的几个阶段及各个阶段文档 (写在方括号中)</h3><ul>
+<li>需求分析: 包括问题定义, 可行性研究, 需求分析 [SRS(软件需求规格书)]</li>
+<li>系统设计: 包括用户界面设计 [SAD(软件系统结构图)]</li>
+<li>程序设计: 包括模块功能算法与数据描述设计 [相关文档]</li>
+<li>程序实现: 包括编程与 debug [源代码和注释]</li>
+<li>单元测试: 模块功能和性能测试 [测试报告]</li>
+<li>集成测试: 按照结构图测试 [测试报告]</li>
+<li>系统测试: 按 SRS 对系统总体功能进行测试与复审</li>
+<li>系统提交: 交付产品 [用户手册和操作手册]</li>
+<li>系统维修: 修改软件的过程, 为改错或满足新需求 [维修报告]</li>
+</ul>
+<h3 id="什么是重用-抽象等现代软件工程主要概念-软件工程的Wasserman-规范"><a href="#什么是重用-抽象等现代软件工程主要概念-软件工程的Wasserman-规范" class="headerlink" title="什么是重用, 抽象等现代软件工程主要概念 (软件工程的Wasserman 规范)"></a>什么是重用, 抽象等现代软件工程主要概念 (软件工程的Wasserman 规范)</h3><ul>
+<li>重用: 重复采用以前开发的软件系统中共性的部件, 用到新的开发项目中</li>
+<li>抽象: 基于某种层次归纳水平的问题描述, 使我们将注意力集中在问题的关键地方而非细节</li>
+<li>分析设计方法和符号描述系统: 使用标准表示对程序进行描述, 利于交流建模并检查其完整和一致性, 利于对需求和部件践行重用</li>
+<li>用户界面原型化: 建立小型的系统, 具有有限的关键功能, 以利于用户评价选择, 证明设计的可行性</li>
+<li>软件体系结构: 定义一组体系结构单元及其关系集来描述软件功能, <strong>单元分解方法</strong></li>
+<li>软件过程: 软件开发活动中的各种组织及规范方法</li>
+<li>测量: 通用的评价方法与体系</li>
+<li>工具和集成环境: 通过框架比较软件工程环境提供的服务, 以决定其好坏</li>
+</ul>
+<h2 id="第二章-过程和生命周期的建模"><a href="#第二章-过程和生命周期的建模" class="headerlink" title="第二章 过程和生命周期的建模"></a>第二章 过程和生命周期的建模</h2><h3 id="什么是软件过程-其重要性是什么-包含几个阶段-软件生命周期"><a href="#什么是软件过程-其重要性是什么-包含几个阶段-软件生命周期" class="headerlink" title="什么是软件过程, 其重要性是什么, 包含几个阶段, 软件生命周期"></a>什么是软件过程, 其重要性是什么, 包含几个阶段, 软件生命周期</h3><ul>
+<li>定义: 一组有序的任务, 涉及活动, 约束和资源使用的一系列步骤, 用于产生某种想要的输出</li>
+<li>重要性:<ul>
+<li>强制活动具有一致性和一定的结构</li>
+<li>过程结构允许我们分析理解控制和改进组成过程的活动, 并以此指导我们的活动</li>
+<li>使我们获得经验并传授给他人</li>
+</ul>
+</li>
+<li>生命周期: 软件开发过程描述了从概念到实现, 交付, 使用和维护等过程, 因此可以将软件开发过程称为生命周期</li>
+</ul>
+<h3 id="瀑布模型和各阶段文档和优缺点"><a href="#瀑布模型和各阶段文档和优缺点" class="headerlink" title="瀑布模型和各阶段文档和优缺点"></a>瀑布模型和各阶段文档和优缺点</h3><ul>
+<li>定义: 线性的安排每个阶段, 将开发阶段描述为从一个阶段瀑布的转向另一个阶段, 前一个阶段必须在后一个阶段前完成</li>
+<li>各阶段文档<br><img src="/image/se-1.png" alt></li>
+<li>优点<ul>
+<li>简单性, 易向不熟悉软件开发的客户解释</li>
+<li>便于评估, 每个过程活动都有与之相关的里程碑和可交付产品</li>
+<li>是很多其他模型的基础</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>无法处理重复开发的问题, 因为软件开发是一个创造的过程而非制造, 开发时大量迭代</li>
+<li>文档转换有困难</li>
+</ul>
+</li>
+</ul>
+<h3 id="原型的概念与用途"><a href="#原型的概念与用途" class="headerlink" title="原型的概念与用途"></a>原型的概念与用途</h3><ul>
+<li>概念: 一种部分开发的产品</li>
+<li>用途: 用来让用户和开发者共同研究, 为最终产品定型</li>
+</ul>
+<h3 id="论述分阶段开发模型的含义-其基本分类及特点是什么"><a href="#论述分阶段开发模型的含义-其基本分类及特点是什么" class="headerlink" title="论述分阶段开发模型的含义, 其基本分类及特点是什么"></a>论述分阶段开发模型的含义, 其基本分类及特点是什么</h3><ul>
+<li>系统设计成部分提交, 用户每次只能获取部分功能, 其他部分在开发中</li>
+<li>基本分类和特点<ul>
+<li>产品系统和开发系统</li>
+<li>增量开发和迭代开发</li>
+<li>增量与迭代结合</li>
+<li>进化式迭代开发</li>
+</ul>
+</li>
+</ul>
+<h3 id="螺旋模型四个象限的任务及四重循环的含义"><a href="#螺旋模型四个象限的任务及四重循环的含义" class="headerlink" title="螺旋模型四个象限的任务及四重循环的含义"></a>螺旋模型四个象限的任务及四重循环的含义</h3><ul>
+<li>指定计划: 确认软件目标, 选定方案, 弄清限制条件</li>
+<li>风险分析: 分析所选方案, 考虑如何避免</li>
+<li>实施工程: 软件开发与验证</li>
+<li>客户评估: 评估开发工作, 确认下一步计划</li>
+<li>四重循环: 螺旋模型共有四次迭代, 操作概念, 软件需求, 软件设计, 开发与测试, 每一次迭代根据需求和约束进行风险分析, 并通过原型化验证可行性和期望度</li>
+</ul>
+<h3 id="什么是UP，-RUP，进化式迭代等市场流行的过程模型"><a href="#什么是UP，-RUP，进化式迭代等市场流行的过程模型" class="headerlink" title="什么是UP， RUP，进化式迭代等市场流行的过程模型"></a>什么是UP， RUP，进化式迭代等市场流行的过程模型</h3><blockquote>
+<p>参考 <a href="https://www.cnblogs.com/wj033/p/5942304.html" target="_blank" rel="noopener">软件开发学习笔记 &lt;二&gt;软件开发模型、Up、Rup、敏捷Up</a></p>
+</blockquote>
+<ul>
+<li>up: 统一过程, 一种现代的软件开发模型, 基于构件, 系统是由构件通过接口相互链接而成, 使用 UML 来指定系统的所有蓝图</li>
+<li>RUP: 统一软件开发过程, 兼容 UP, 提供开发组织中分派任务和责任的纪录化方法, 目标是在可预见的日程和预算下, 确保满足用户</li>
+<li>进化式迭代: 是统一开发过程的关键实践, 开发被组织为一系列固定的短期项目, 每次迭代都产生经过测试集成并可执行的局部系统, 每次迭代都有各自的需求分析, 设计, 实现和测试, 随着迭代系统增量式完善</li>
+</ul>
+<h2 id="第三章-计划和管理项目"><a href="#第三章-计划和管理项目" class="headerlink" title="第三章 计划和管理项目"></a>第三章 计划和管理项目</h2><h3 id="什么是项目进度-活动-里程碑"><a href="#什么是项目进度-活动-里程碑" class="headerlink" title="什么是项目进度, 活动, 里程碑"></a>什么是项目进度, 活动, 里程碑</h3><ul>
+<li>项目进度: 对特定项目的软件开发周期的刻画, 包括对项目阶段, 步骤, 活动的分离和各个活动的完成时间以及整个项目的完成时间的估算</li>
+<li>活动: 项目的一部分, 占用项目计划中的一段时间</li>
+<li>里程碑: 指特定的时间点, 标志着活动的结束, 伴随着提取物 (如一般性文档，功能模块的说明，子系统的说明和展示，精确度的说明和展示，可靠性，安全性，性能说明或展示文档)</li>
+</ul>
+<h3 id="⚡-如何计算软件项目活动图的关键路径-冗余时间-最早和最迟开始时间"><a href="#⚡-如何计算软件项目活动图的关键路径-冗余时间-最早和最迟开始时间" class="headerlink" title="⚡ 如何计算软件项目活动图的关键路径, 冗余时间, 最早和最迟开始时间"></a>⚡ 如何计算软件项目活动图的关键路径, 冗余时间, 最早和最迟开始时间</h3><blockquote>
+<p>(习题2，3)</p>
+</blockquote>
+<p><img src="/image/se-3.png" alt><br>上图描述了活动和活动间依赖关系的图, 其中节点表示项目的里程碑 (活动结束), 线是活动, A-&gt;B 不是从活动 A 到 B, 意思是有个活动完成后到 B 里程碑</p>
+<ul>
+<li>估算项目完成时间<ul>
+<li>关键路径: 从起点到终点花费最长时间的路径, 即这个项目的最短完成时间, 若它没完成, 整个项目不能算完成</li>
+<li>冗余时间: 在不耽误整体项目时间的最晚时间减去最早时间</li>
+<li>最早最晚开始时间计算: 首先关键路径时间是不能耽误的, 没有冗余时间, 表示方式为 &lt;最早,最晚,冗余&gt;, <strong>最晚时间</strong>, 从后往前, 在关键路径的里程碑上的最晚时间, 减去其他分支的活动时间就是这个分支的最晚时间 (因为关键路径上一刻不停, 完成时整个项目就完成了), 若有多个分支选择最小的最晚时间, 以防耽误项目, <strong>最早时间</strong>, 按照关键路径的方法算每个到达里程碑的路径, 由于只有两个活动都到了里程碑才能开始下一个里程碑, 所以在多个分支处选择最晚的作为此里程碑的最早时间</li>
+</ul>
+</li>
+</ul>
+<h3 id="软件项目团队组织的基本结构"><a href="#软件项目团队组织的基本结构" class="headerlink" title="软件项目团队组织的基本结构"></a>软件项目团队组织的基本结构</h3><ul>
+<li>主程序负责制: 由一个主程负责系统设计和开发, 其他成员向其汇报, 对每一个决定有绝对决策权</li>
+<li>忘我方法: 每一个成员平等承担责任, 过程和个人分开, 批评针对产品和结果而非个人</li>
+</ul>
+<h3 id="试述COCOMO模型的三个阶段基本工作原理或含义"><a href="#试述COCOMO模型的三个阶段基本工作原理或含义" class="headerlink" title="试述COCOMO模型的三个阶段基本工作原理或含义"></a>试述COCOMO模型的三个阶段基本工作原理或含义</h3><ul>
+<li>定义: cocomo 针对项目开发的不同阶段设置工作量的衡量标准, 逐步细化准确</li>
+<li>阶段一: 构建原型解决高风险问题, 此时 ccm 用应用点来估计规模</li>
+<li>二: 早期设计阶段, 使用功能点对规模进行测量</li>
+<li>三: 后体系结构阶段, 开发已经开始, 可以根据功能点和代码行进行规模估计</li>
+</ul>
+<h3 id="什么是软件风险-了解主要风险管理活动-有几种降低风险的策略"><a href="#什么是软件风险-了解主要风险管理活动-有几种降低风险的策略" class="headerlink" title="什么是软件风险, 了解主要风险管理活动, 有几种降低风险的策略"></a>什么是软件风险, 了解主要风险管理活动, 有几种降低风险的策略</h3><ul>
+<li>定义: 开发中不希望看见的, 有负面结果的事件</li>
+<li>主要风险管理活动<ul>
+<li>风险评价: 风险识别</li>
+<li>风险控制: 风险降低</li>
+</ul>
+</li>
+<li>降低风险的策略<ul>
+<li>避免: 改变功能和性能需求, 是风险没机会发生, 如为防止内存泄漏从 c 到 java</li>
+<li>转移: 把风险转移到其他系统, 如购买保险</li>
+<li>假设: 接受并控制风险, 比如开发时有意识进行测试</li>
+</ul>
+</li>
+</ul>
+<h3 id="⚡弄懂活动图基本原理-参考课本-找出课后练习题图3-23和3-24的关键路径"><a href="#⚡弄懂活动图基本原理-参考课本-找出课后练习题图3-23和3-24的关键路径" class="headerlink" title="⚡弄懂活动图基本原理(参考课本), 找出课后练习题图3.23和3.24的关键路径"></a>⚡弄懂活动图基本原理(参考课本), 找出课后练习题图3.23和3.24的关键路径</h3><ul>
+<li>定义: 活动图是UML用于对系统的动态行为建模的另一种常用工具，它描述活动的顺序，展现从一个活动到另一个活动的控制流。活动图在本质上是一种流程图。活动图着重表现从一个活动到另一个活动的控制流，是内部处理驱动的流程。</li>
+</ul>
+<h2 id="第四章-获取需求"><a href="#第四章-获取需求" class="headerlink" title="第四章 获取需求"></a>第四章 获取需求</h2><h3 id="需求的含义是什么"><a href="#需求的含义是什么" class="headerlink" title="需求的含义是什么"></a>需求的含义是什么</h3><p>定义: 对来自用户的软件期望的综合描述, 设计软件的对象, 状态, 约束, 功能</p>
+<h3 id="需求阶段作为一个工程，其确定需求的过程是什么"><a href="#需求阶段作为一个工程，其确定需求的过程是什么" class="headerlink" title="需求阶段作为一个工程，其确定需求的过程是什么"></a>需求阶段作为一个工程，其确定需求的过程是什么</h3><ul>
+<li>原始需求获取: 客户给出的需求</li>
+<li>问题分析: 理解需求并建模描述</li>
+<li>规格说明草稿: 利用符号描述系统将需求规范化</li>
+<li>需求核准: 开发人员与客户进行核准</li>
+<li>SRS, 软件规格说明</li>
+</ul>
+<h3 id="举例说明获取需求时-若有冲突发生时-如何考虑根据优先级进行需求分类"><a href="#举例说明获取需求时-若有冲突发生时-如何考虑根据优先级进行需求分类" class="headerlink" title="举例说明获取需求时, 若有冲突发生时, 如何考虑根据优先级进行需求分类"></a>举例说明获取需求时, 若有冲突发生时, 如何考虑根据优先级进行需求分类</h3><ul>
+<li>必须完成的需求</li>
+<li>非常值得做但并非必须</li>
+<li>可选的</li>
+</ul>
+<h3 id="需求文档分为哪两类"><a href="#需求文档分为哪两类" class="headerlink" title="需求文档分为哪两类"></a>需求文档分为哪两类</h3><ul>
+<li>需求定义: 完整罗列客户的需求期望</li>
+<li>需求规格描述: 将需求重述为要构建的系统将如何运转的规格说明</li>
+</ul>
+<h3 id="什么是功能性需求和非功能性需求-质量需求-设计约束-过程约束-如何区分"><a href="#什么是功能性需求和非功能性需求-质量需求-设计约束-过程约束-如何区分" class="headerlink" title="什么是功能性需求和非功能性需求/质量需求, 设计约束, 过程约束, 如何区分"></a>什么是功能性需求和非功能性需求/质量需求, 设计约束, 过程约束, 如何区分</h3><ul>
+<li>功能性需求: 描述系统内部功能和外部功能的交互作用, 涉及系统输入应对, 实体状态变化, 输出结果, 设计约束, 过程约束</li>
+<li>质量需求: 描述软件的质量特征, 保证性能, 应用性和可靠性</li>
+<li>过程约束: 对用于构建系统的技术和资源的限制, 涵盖资源文档等方面</li>
+<li>设计约束: 已经作出的或限制系统解决方案的设计决策, 涵盖物理环境, 接口, 用户等方面</li>
+</ul>
+<h3 id="⚡了解DFD-数据流-图的构成及画法"><a href="#⚡了解DFD-数据流-图的构成及画法" class="headerlink" title="⚡了解DFD(数据流)图的构成及画法"></a>⚡了解DFD(数据流)图的构成及画法</h3><ul>
+<li>定义: 描述数据进入转换流出系统</li>
+<li>构成与画法<br><img src="/image/se-5.png" alt></li>
+</ul>
+<blockquote>
+<p><a href="https://wiki.mbalib.com/wiki/%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B%E5%9B%BE" target="_blank" rel="noopener">数据流程图</a></p>
+</blockquote>
+<h2 id="第五章-设计体系结构"><a href="#第五章-设计体系结构" class="headerlink" title="第五章 设计体系结构"></a>第五章 设计体系结构</h2><h3 id="什么是软件体系结构-设计模式-设计公约-设计"><a href="#什么是软件体系结构-设计模式-设计公约-设计" class="headerlink" title="什么是软件体系结构, 设计模式, 设计公约, 设计"></a>什么是软件体系结构, 设计模式, 设计公约, 设计</h3><ul>
+<li>设计体系结构: 一种软件解决方案, 如何分解为单元, 单元之间的联系和单元的所有外部特性</li>
+<li>设计模式: 一种针对单个或小范围软件模块的一般性解决方案, 提供较低层次的设计决策, 它是一个共同的设计结构的关键方面</li>
+<li>设计公约: 一系列设计和决策的集合, 用于提高系统某方面的设计质量, 当其发展成熟后会封装成设计模式或体系结构甚至成为内嵌程序语言结构</li>
+<li>设计: 将需求中的问题描述转变为软件解决方案的创造性过程</li>
+</ul>
+<h3 id="软件设计过程模型的几个阶段"><a href="#软件设计过程模型的几个阶段" class="headerlink" title="软件设计过程模型的几个阶段"></a>软件设计过程模型的几个阶段</h3><ul>
+<li>建模: 根据需求中系统的特性确定软件体系结构风格</li>
+<li>分析: 分析初步的软件体系结构, 主要包括质量, 安全, 可靠性</li>
+<li>文档化: 确定各个不同的模型视图</li>
+<li>复审: 检查文档是否满足了所有的需求</li>
+<li>最终输出: SAD 软件体系结构文档, 用来和其他开发人员交流系统级设计决策的工具</li>
+</ul>
+<h3 id="论述设计用户界面应考虑的问题"><a href="#论述设计用户界面应考虑的问题" class="headerlink" title="论述设计用户界面应考虑的问题"></a>论述设计用户界面应考虑的问题</h3><ul>
+<li>要素<ul>
+<li>隐喻: 可识别和学习的基本术语, 图像和概念</li>
+<li>思维模型: 数据功能任务的组织和展示</li>
+<li>导航规则: 怎样在数据, 功能, 活动和角色中切换</li>
+<li>外观: 系统向用户传输的外观特征</li>
+<li>感觉: 向用户提供有吸引力的交互</li>
+</ul>
+</li>
+<li>文化问题</li>
+<li>用户偏好</li>
+</ul>
+<h3 id="举例说明耦合与内聚的基本分类。以及各个分类的含义与特征"><a href="#举例说明耦合与内聚的基本分类。以及各个分类的含义与特征" class="headerlink" title="举例说明耦合与内聚的基本分类。以及各个分类的含义与特征"></a>举例说明耦合与内聚的基本分类。以及各个分类的含义与特征</h3><ul>
+<li>耦合: 指两个软件之间的相互关联度<ul>
+<li>根据模块间以来的多少: 紧密, 松散, 非耦合</li>
+<li>内容耦合: 一个模块修改了另一个模块, 被修改的模块完全依赖于修改他的模块</li>
+<li>公共耦合: 不同模块可以从公共数据区获取数据</li>
+<li>控制耦合: 一个模块通过传递参数或返回语句来控制另一模块的活动</li>
+<li>标记/特征耦合</li>
+<li>数据耦合</li>
+<li>非耦合</li>
+</ul>
+</li>
+<li>内聚: 指模块内部成分的关联度, 如数据, 内部模块和功能<ul>
+<li>偶然</li>
+<li>逻辑</li>
+<li>时间</li>
+<li>过程</li>
+<li>通讯</li>
+<li>顺序</li>
+<li>功能</li>
+<li>信息</li>
+</ul>
+</li>
+</ul>
+<h3 id="软件过程中复审的概念-设计复审的重要性"><a href="#软件过程中复审的概念-设计复审的重要性" class="headerlink" title="软件过程中复审的概念, 设计复审的重要性"></a>软件过程中复审的概念, 设计复审的重要性</h3><ul>
+<li>定义: 检查文档是否满足所有功能和质量需求, 通过验证和确认</li>
+<li>重要性<ul>
+<li>复审时的批评讨论是忘我的, 能增加开发之间的交流</li>
+<li>此时发现问题的成本不高, 找到故障能让每个人受益</li>
+</ul>
+</li>
+</ul>
+<h2 id="第六章-考虑对象"><a href="#第六章-考虑对象" class="headerlink" title="第六章 考虑对象"></a>第六章 考虑对象</h2><h3 id="什么是设计模式"><a href="#什么是设计模式" class="headerlink" title="什么是设计模式"></a>什么是设计模式</h3><p>上面有, 软件设计过程中, 涉及到的常用问题, 以及解决这些问题的方案和核心内容</p>
+<h3 id="了解OO设计的基本原则"><a href="#了解OO设计的基本原则" class="headerlink" title="了解OO设计的基本原则"></a>了解OO设计的基本原则</h3><ul>
+<li>单一职责</li>
+<li>重用</li>
+<li>开闭</li>
+<li>替换</li>
+<li>依赖倒置</li>
+<li>接口隔离</li>
+<li>迪米特法则</li>
+</ul>
+<h3 id="了解OO开发有何优势"><a href="#了解OO开发有何优势" class="headerlink" title="了解OO开发有何优势"></a>了解OO开发有何优势</h3><ul>
+<li>语言的一致性: 使用相同的语义结构来描述解决问题</li>
+<li>全开发过程的一致性: 从需求分析到设计和开发与测试用的相同的语义结构</li>
+</ul>
+<h3 id="OO开发过程有几个步骤"><a href="#OO开发过程有几个步骤" class="headerlink" title="OO开发过程有几个步骤"></a>OO开发过程有几个步骤</h3><ul>
+<li>需求分析和设计</li>
+<li>高层设计</li>
+<li>底层设计</li>
+<li>编码</li>
+<li>设计</li>
+</ul>
+<h3 id="掌握用例图的组成和画法-用例的几个要素的含义"><a href="#掌握用例图的组成和画法-用例的几个要素的含义" class="headerlink" title="掌握用例图的组成和画法, 用例的几个要素的含义"></a>掌握用例图的组成和画法, 用例的几个要素的含义</h3><ul>
+<li>用例图: 表示一个用户、外部系统或其他实体和在开发系统的关系<ul>
+<li>用例: 描述系统提供的特定功能</li>
+<li>执行者: 和系统交互的实体</li>
+<li>包含: 对已定义用例的复用, 提取公共行为</li>
+<li>扩展: 对用例的扩展使用, 如自动登录</li>
+</ul>
+</li>
+</ul>
+<h3 id="用例图、类图等针对面向对象的项目开发的意义是什么"><a href="#用例图、类图等针对面向对象的项目开发的意义是什么" class="headerlink" title="用例图、类图等针对面向对象的项目开发的意义是什么"></a>用例图、类图等针对面向对象的项目开发的意义是什么</h3><ul>
+<li>用例图: 阐明需求, 找到问题, 便于交流</li>
+<li>类图<ul>
+<li>数据封装为类</li>
+<li>类与类之间的关系</li>
+</ul>
+</li>
+</ul>
+<h3 id="熟悉类图中各个类之间的基本关系分类及其含义。"><a href="#熟悉类图中各个类之间的基本关系分类及其含义。" class="headerlink" title="熟悉类图中各个类之间的基本关系分类及其含义。"></a>熟悉类图中各个类之间的基本关系分类及其含义。</h3><ul>
+<li>关联</li>
+<li>依赖: 使用另一个类作参数</li>
+<li>泛化</li>
+<li>接口实现</li>
+<li>继承, 关联, 聚合, 组合, 依赖, 接口实现<h3 id="熟悉用例图、类图的组成和画法"><a href="#熟悉用例图、类图的组成和画法" class="headerlink" title="熟悉用例图、类图的组成和画法"></a>熟悉用例图、类图的组成和画法</h3></li>
+<li>类图<ul>
+<li>类<ul>
+<li>类名</li>
+<li>属性</li>
+<li>操作</li>
+</ul>
+</li>
+<li>类之间的关系<ul>
+<li>关联</li>
+<li>依赖</li>
+<li>泛化</li>
+<li>接口实现<h3 id="了解UML其他图示结构的基本用途"><a href="#了解UML其他图示结构的基本用途" class="headerlink" title="了解UML其他图示结构的基本用途"></a>了解UML其他图示结构的基本用途</h3></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>定义: 一种符号表示方法</li>
+<li>类描述模板: 描述了程序设计的基础(类的层次, 操作等)</li>
+<li>包图: 展示包和类之间的依赖</li>
+<li>对象图: 解释对象</li>
+</ul>
+<h2 id="第七章-编写程序"><a href="#第七章-编写程序" class="headerlink" title="第七章 编写程序"></a>第七章 编写程序</h2><h3 id="一般性的编程原则应该从哪三个方面考虑"><a href="#一般性的编程原则应该从哪三个方面考虑" class="headerlink" title="一般性的编程原则应该从哪三个方面考虑"></a>一般性的编程原则应该从哪三个方面考虑</h3><ul>
+<li>控制结构: 当设计转换为代码, 会保留组件间的控制结构, 在隐含调用的面向对象设计中, 控制是基于系统设计和变量的</li>
+<li>算法: 程序设计会在编写组建时使用一定算法</li>
+<li>数据结构: 编写时应该按照数据的格式进行存储, 使数据管理操作简单易懂</li>
+</ul>
+<h3 id="在编写程序内部文档时-除了HCB外-还应添加什么注释信息-注意什么"><a href="#在编写程序内部文档时-除了HCB外-还应添加什么注释信息-注意什么" class="headerlink" title="在编写程序内部文档时, 除了HCB外, 还应添加什么注释信息, 注意什么"></a>在编写程序内部文档时, 除了HCB外, 还应添加什么注释信息, 注意什么</h3><ul>
+<li>HCB: 头注释块, 将注释信息放在构建开始处, 包括构件名, 作者, 配置在系统的哪个部分, 何时编写修改的</li>
+<li>其他程序注释<ul>
+<li>程序每行都在做什么</li>
+<li>将代码分解为段, 段再分步骤</li>
+<li>随着时间进行修改的记录</li>
+</ul>
+</li>
+<li>有意义的变量名和语句标记</li>
+<li>注意缩进结构</li>
+</ul>
+<h3 id="什么是极限编程-XP-以及派对编程"><a href="#什么是极限编程-XP-以及派对编程" class="headerlink" title="什么是极限编程(XP), 以及派对编程"></a>什么是极限编程(XP), 以及派对编程</h3><ul>
+<li>极限编程: 敏捷过程的一种, 提供敏捷开发的原则方针指导</li>
+<li>派对/结对编程: 敏捷开发的主要方式, 两个程序员共同开发, 一个开发, 一个复审两个人经常交换角色</li>
+</ul>
+<h2 id="第八章-测试程序"><a href="#第八章-测试程序" class="headerlink" title="第八章 测试程序"></a>第八章 测试程序</h2><h3 id="了解-产生软件缺陷的原因"><a href="#了解-产生软件缺陷的原因" class="headerlink" title="了解 产生软件缺陷的原因"></a>了解 产生软件缺陷的原因</h3><ul>
+<li>系统设计</li>
+<li>不清晰的需求</li>
+<li>程序实现</li>
+<li>测试有误</li>
+<li>不正确不清晰的设计规格说明</li>
+</ul>
+<h3 id="有几种主要的缺陷类型"><a href="#有几种主要的缺陷类型" class="headerlink" title="有几种主要的缺陷类型"></a>有几种主要的缺陷类型</h3><ul>
+<li>算法: 由于处理步骤的错误, 构件对于给定的输入没有正确的输出</li>
+<li>计算/精度: 公式是错的或者给出的数据的精度有问题</li>
+<li>文档: 文档与程序不一致</li>
+<li>压力/过载: 对队列长度, 缓冲区, 表的使用超过了软件的能力</li>
+<li>能力/边界: 系统的使用到了极限的情况时, 性能变得无法接受</li>
+</ul>
+<h3 id="什么是正交缺陷分类"><a href="#什么是正交缺陷分类" class="headerlink" title="什么是正交缺陷分类"></a>什么是正交缺陷分类</h3><ul>
+<li>被分类的故障只属于一类, 如果属于多个类别, 则不正交</li>
+</ul>
+<h3 id="测试的各个阶段及其任务"><a href="#测试的各个阶段及其任务" class="headerlink" title="测试的各个阶段及其任务"></a>测试的各个阶段及其任务</h3><ul>
+<li>模块/构件/单元: 将系统中的构件隔开, 对其本身测试</li>
+<li>集成: 验证系统构件能否按照规格中的描述共同工作</li>
+<li>功能: 对系统集成进行测试, 验证是否按照需求规格说明描述的功能, 结果是一个可运转的系统</li>
+<li>性能: 测试系统的软硬件性能是否符合规格</li>
+<li>验收: 确认系统按照用户期望运行</li>
+<li>安装: 确认系统在实际环境中按照应有的方式运行</li>
+<li>系统: 功能,性能, 验收, 安装统称为系统测试</li>
+<li>图片 fig.8.3<br><img src="/image/se-2.png" alt></li>
+</ul>
+<h3 id="掌握测试的方法—-黑盒、白盒的概念"><a href="#掌握测试的方法—-黑盒、白盒的概念" class="headerlink" title="掌握测试的方法—-黑盒、白盒的概念"></a>掌握测试的方法—-黑盒、白盒的概念</h3><ul>
+<li>黑盒: 将测试的对象看做不知内容的盒子, 向其中输入数据期待正确的输出, 输入输出参考的是系统设计和程序设计的文档</li>
+<li>白盒: 将对象看做白盒, 针对结构用不同方法测试, 可以测试每个模块细节</li>
+</ul>
+<h3 id="什么是单元测试"><a href="#什么是单元测试" class="headerlink" title="什么是单元测试"></a>什么是单元测试</h3><ul>
+<li>针对程序模块的正确性验证的测试</li>
+<li>测试是测试用例的有限集合, 语句, 分支, 路径测试</li>
+</ul>
+<h3 id="黑盒白盒方法各自的分类-测试用例的设计和给出方法"><a href="#黑盒白盒方法各自的分类-测试用例的设计和给出方法" class="headerlink" title="黑盒白盒方法各自的分类, 测试用例的设计和给出方法"></a>黑盒白盒方法各自的分类, 测试用例的设计和给出方法</h3><ul>
+<li>黑盒<ul>
+<li>等价分类: 将输入划分为若干等价类, 如果其中一个没有问题那么等价类中的都没问题, 减少测试时间</li>
+<li>边界值分析: 在等价分类法的基础上, 测试值选择分类的边界效果更好</li>
+<li>错误猜测: 猜测程序哪里会出错, 根据此来设计测试用例</li>
+<li>因果图: 适合程序有很多输入, 输出又依赖程序的输入的情况</li>
+</ul>
+</li>
+<li>白盒<ul>
+<li>语句覆盖</li>
+<li>条件覆盖: 判定中的每个分支, 真与假都测一遍</li>
+<li>判定覆盖:</li>
+<li>条件组合: 每个条件结果的组合都出现一遍</li>
+</ul>
+</li>
+</ul>
+<h3 id="⚡如何面对一个命题-设计和给出测试用例的问题"><a href="#⚡如何面对一个命题-设计和给出测试用例的问题" class="headerlink" title="⚡如何面对一个命题, 设计和给出测试用例的问题"></a>⚡如何面对一个命题, 设计和给出测试用例的问题</h3><ul>
+<li>例如: 某城市的电话号码由3 部分组成。这3 个部分的名称与内容分别是<pre><code>地区码：空白或3 位数字；
+前缀：非’0’或’1’开头的3 位数字；
+后缀：4 位数字。</code></pre>  假定被测程序能接受一切符合上述规定的电话号码，拒绝所有不符合规定的号码，请使<br>  用等价类的思路设计测试用例。<br>  <img src="/image/se-4.png" alt></li>
+<li>对于有效等价类可以用一个测试, 无效等价类采用单一变量的原则, 每次测试一个无效等价类</li>
+</ul>
+<h3 id="集成测试及其主要方法的分类-驱动-桩的概念"><a href="#集成测试及其主要方法的分类-驱动-桩的概念" class="headerlink" title="集成测试及其主要方法的分类, (驱动, 桩的概念)"></a>集成测试及其主要方法的分类, (驱动, 桩的概念)</h3><ul>
+<li>自底向上: 从系统中最底层的构件开始接着测试调用了这些底层构件的构件, 反复直到所有构件测试完毕<ul>
+<li>驱动: 测试底层时, 由于没有已测试的调用底层的构件, 所以需要编写特定的代码来调用底层的代码来辅助集成</li>
+</ul>
+</li>
+<li>自顶向下: 顶层构件通常独立单独测试, 然后将被测的构件中调用的构件汇总起来, 作为一个更大的单元测试, 重复直到完毕<ul>
+<li>桩: 用来充当下层模块的应答程序</li>
+</ul>
+</li>
+</ul>
+<h2 id="第九章-测试系统"><a href="#第九章-测试系统" class="headerlink" title="第九章 测试系统"></a>第九章 测试系统</h2><h3 id="系统测试的主要步骤及各自含义"><a href="#系统测试的主要步骤及各自含义" class="headerlink" title="系统测试的主要步骤及各自含义"></a>系统测试的主要步骤及各自含义</h3><ul>
+<li>功能测试: 系统功能需求</li>
+<li>性能测试: 其他软件需求</li>
+<li>验收测试: 客户需求说明</li>
+<li>安装测试: 客户环境</li>
+</ul>
+<h3 id="功能测试的含义极其作用和基本指导原则"><a href="#功能测试的含义极其作用和基本指导原则" class="headerlink" title="功能测试的含义极其作用和基本指导原则"></a>功能测试的含义极其作用和基本指导原则</h3><ul>
+<li>定义: 测试需求设计的功能性需求</li>
+<li>作用: 能检测出故障</li>
+<li>基本指导原则<ul>
+<li>高故障检测概率</li>
+<li>使用独立的测试小组</li>
+<li>了解期望的输出</li>
+<li>合法不合法输入都要测试</li>
+<li>制定停止测试的标准</li>
+</ul>
+</li>
+</ul>
+<h3 id="性能测试的含义与作用与主要分类"><a href="#性能测试的含义与作用与主要分类" class="headerlink" title="性能测试的含义与作用与主要分类"></a>性能测试的含义与作用与主要分类</h3><ul>
+<li>定义: 针对非功能需求</li>
+<li>作用: 确保系统的可用性, 可靠性, 可维护性</li>
+<li>分类<ul>
+<li>压力: 短时间内加满负荷验证系统能力</li>
+<li>容量: 验证系统处理大量数据</li>
+<li>配置: 测试各种软硬件配置</li>
+<li>兼容性: 与其他系统交互时</li>
+<li>回归: 如果这个系统要替代现有系统</li>
+</ul>
+</li>
+</ul>
+<h3 id="确认测试概念-确认测试分类"><a href="#确认测试概念-确认测试分类" class="headerlink" title="确认测试概念, 确认测试分类"></a>确认测试概念, 确认测试分类</h3><ul>
+<li>定义: 确认系统满足了客户的需要, 确认测试的编写, 执行评估都是由客户进行, 只有请求某个技术问题才需要开发人员</li>
+<li>分类<ul>
+<li>基准: 客户准备用例, 在实际安装运行的系统运作并对系统运行情况进行评估</li>
+<li>引导: 相对系统的日常性工作测试, 没有基准测试正式</li>
+</ul>
+</li>
+</ul>
+<h3 id="什么是alpha测试-β测试"><a href="#什么是alpha测试-β测试" class="headerlink" title="什么是alpha测试, β测试,"></a>什么是alpha测试, β测试,</h3><ul>
+<li>α测试: 在向客户发布之前, 先由公司用户来测试</li>
+<li>β测试: 客户的测试</li>
+</ul>
+<h3 id="什么是安装测试"><a href="#什么是安装测试" class="headerlink" title="什么是安装测试"></a>什么是安装测试</h3><ul>
+<li>定义: 在用户的环境配置系统, 测试可能因为开发与用户环境不同导致的问题</li>
+</ul>
+<blockquote>
+<p>往年试卷才是最重要的, 知识点都是其次, 另外软工试卷题目十几年来都没啥变化, 下面是05与07年的题目和答案<br><a href="/ref/se.rar">下载</a></p>
+</blockquote>
+<h2 id="软件工程模拟试卷2019年下（A）"><a href="#软件工程模拟试卷2019年下（A）" class="headerlink" title="软件工程模拟试卷2019年下（A）"></a>软件工程模拟试卷2019年下（A）</h2><p>备注1：请使用中文回答问题。<br>备注2：所有题目都要写到试卷的指定位置（例如：试卷上），以免流水阅卷时有遗漏<br>备注3：复习时以课件为主，英文中文教材为辅。</p>
+<p>一. 解释下列名词的含义（每个小题2分，共 X 分）<br>1．软件工程（Software Engineering）<br>2．过程（Process）<br>3．黑盒测试（ Black-box Test）<br>二. 判断（填写 × 或 √）（每个小题1分，共 X 分）<br>1．(    ) 当软件系统的效率与可维护性产生抵触时，应强调效率。<br>2．(    ) 开发软件时可随便选择一种语言进行开发。<br>3．(    ) 抽象是面向对象的开发方法中独有的策略，在传统的开发方法中不需使用。<br>4．(    ) 桩模块的编写比驱动模块更困难。</p>
+<p>三. 从供选择的答案中，选出正确的答案填入（　）内。（每个题空1分，共 X 分）</p>
+<ol>
+<li>下列选项不属于瀑布模型的优点的是（    ）。<br>A．可迫使开发人员采用规范的方法<br>B．严格的规定了每个阶段必须提交的文档<br>C．要求每个阶段交出的所有产品都必须经过质量保证小组的仔细验证<br>D．支持后期的变动<br>2．软件生命周期一般都被划分为若干个独立的阶段，其中占用精力和费用最多的阶段往往是（   ）。<br>A．运行和维护阶段      B. 设计阶段<br>C．代码实现阶段        D. 测试阶段</li>
+<li>软件是计算机系统中与硬件相互依存的部分，它是包括（A）、（B）及（C）的完整集合。其中，（A）是按事先设计的功能和性能要求执行的指令序列，（B）是使程序能够正确操纵信息的数据结构，（C）是与程序开发、维护和使用有关的图文资料。<br>A，B，C：① 软件    ② 程序     ③ 代码     ④ 硬件<br>⑤ 文档    ⑥ 外设     ⑦ 数据     ⑧ 图表<br>填入答案（A：        B：         C：           ）<br>四．简述题（每个小题6分，共 X 分）<br>//   1．名词解释。<br>2．某个开发模型的含义及特点。<br>3．列出你所知道的模块间的各种耦合关系<br>4．说明软件测试过程的主要步骤及含义。<br>5．提出某种观点，请予以评价并说明理由。<br>五．综合应用题（共 X 分）<br>1．根据给定的文字命题，画出UML分析图以及描述。<br>2．测试方面的题目<br>（提出实际命题，要求给出测试用例）。<br>（基本概念，或单元测试，或集成测试概念等）。</li>
+<li>高级语言程序设计的基本技术用以实现软件工程的某个设计概念。<br>4．OO的基本设计方法和技巧等。</li>
+</ol>
+</div>
+        </article>
+        <div class="post-copyright">
+          <div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined"></a></span></div>
+          <div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://luckyray-fan.github.io/2019/12/18/软件工程/">https://luckyray-fan.github.io/2019/12/18/软件工程/</a></span></div>
+          <div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://luckyray-fan.github.io">luckyray</a>！</span></div>
+        </div>
+        <div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/学科/">学科</a>
+        </div>
+        <nav id="pagination">
+          <div class="prev-post pull-left"><a href="/2019/12/19/dip/"><i class="fa fa-chevron-left">  </i><span>数字图像处理</span></a></div>
+          <div class="next-post pull-right"><a href="/2019/12/16/tips/"><span>tips</span><i class="fa fa-chevron-right"></i></a></div>
+        </nav>
+      </div>
+    </div>
+    <footer class="footer-bg" style="background-image: url(http://img.luckyray.cn/896653.jpg)">
+      <div class="layout" id="footer">
+        <div class="copyright">&copy;2019 - 2020 By null</div>
+        <div class="framework-info"><span>驱动 - </span><a href="#"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="#"><span>diary</span></a></div>
+      </div>
+    </footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script>
+    <script src="/js/utils.js?version=1.6.1"></script>
+    <script src="/js/fancybox.js?version=1.6.1"></script>
+    <script src="/js/sidebar.js?version=1.6.1"></script>
+    <script src="/js/copy.js?version=1.6.1"></script>
+    <script src="/js/fireworks.js?version=1.6.1"></script>
+    <script src="/js/transition.js?version=1.6.1"></script>
+    <script src="/js/scroll.js?version=1.6.1"></script>
+    <script src="/js/head.js?version=1.6.1"></script>
+    <script>
+      if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        $('#nav').addClass('is-mobile')
+        $('footer').addClass('is-mobile')
+      }
+    </script>
+  </body>
+</html>

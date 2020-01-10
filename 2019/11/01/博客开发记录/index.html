@@ -37,14 +37,14 @@
         <div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span>
           <div class="sidebar-toc__progress-bar"></div>
         </div>
-        <div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#功能-插件开发"><span class="toc-number">1.</span> <span class="toc-text">功能-插件开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#美化-主题开发"><span class="toc-number">2.</span> <span class="toc-text">美化-主题开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写作"><span class="toc-number">3.</span> <span class="toc-text">写作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#总纲"><span class="toc-number">3.1.</span> <span class="toc-text">总纲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#写作风格"><span class="toc-number">3.2.</span> <span class="toc-text">写作风格</span></a></li></ol></li></ol></div>
+        <div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#辅助应用开发"><span class="toc-number">1.</span> <span class="toc-text">辅助应用开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#美化-主题开发"><span class="toc-number">2.</span> <span class="toc-text">美化-主题开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写作"><span class="toc-number">3.</span> <span class="toc-text">写作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#总纲"><span class="toc-number">3.1.</span> <span class="toc-text">总纲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#写作风格"><span class="toc-number">3.2.</span> <span class="toc-text">写作风格</span></a></li></ol></li></ol></div>
       </div>
       <div class="author-info hide">
         <div class="author-info__avatar text-center"><img src="/img/avatar.png"></div>
         <div class="author-info__name text-center"></div>
         <div class="author-info__description text-center">只能自己努力找乐子了</div>
         <hr>
-        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">15</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">7</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
+        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">22</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
         </div>
       </div>
     </div>
@@ -61,8 +61,57 @@
       </div>
       <div class="layout" id="content-inner">
         <article id="post">
-          <div class="article-container" id="post-content"><p>将对静态博客系统的学习和插件开发以及博客功能添加与美化汇总在这里</p>
-<h3 id="功能-插件开发"><a href="#功能-插件开发" class="headerlink" title="功能-插件开发"></a>功能-插件开发</h3><h3 id="美化-主题开发"><a href="#美化-主题开发" class="headerlink" title="美化-主题开发"></a>美化-主题开发</h3><h3 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h3><h4 id="总纲"><a href="#总纲" class="headerlink" title="总纲"></a>总纲</h4><ol>
+          <div class="article-container" id="post-content"><p>将对静态博客系统的学习和插件开发以及博客功能添加与美化汇总在这里, 基本目的是让我自己看得明白, 看得开心</p>
+<h3 id="辅助应用开发"><a href="#辅助应用开发" class="headerlink" title="辅助应用开发"></a>辅助应用开发</h3><ol>
+<li>blog history</li>
+<li>图片转存 (博客中的图片转到七牛云上, 并且将链接跟换)<h3 id="美化-主题开发"><a href="#美化-主题开发" class="headerlink" title="美化-主题开发"></a>美化-主题开发</h3><h3 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h3></li>
+</ol>
+<p><strong>19.11.29</strong> - 现有的博客主题感觉不适合我的喜好, 而且我这风格感觉是真的丑</p>
+<p>针对常有的内容形式, 和 md 的标记方法, 有以下几种对应方面, 后续会在主题层面上进行更改</p>
+<ol>
+<li>列举</li>
+<li>列举 - 跟着图片或文字</li>
+<li>标题</li>
+<li>文字中存在需要解释的英文</li>
+<li>文字中存在需要强调的部分</li>
+</ol>
+<p><strong>需要注意的语法</strong></p>
+<ul>
+<li><p><strong>上下标</strong></p>
+<ul>
+<li>html &lt;sub&gt; &lt;sup&gt;</li>
+<li>markdown ^^, ~~</li>
+</ul>
+</li>
+<li><p><strong>列举, 加粗列举内容比较好看</strong></p>
+<ul>
+<li>数字形式, 1.</li>
+<li>点的形式, -</li>
+</ul>
+</li>
+<li><p><strong>数学公式</strong></p>
+<ul>
+<li><p>LaTeX, 表达数学的一种标记语言</p>
+</li>
+<li><p>mathjax, 浏览器渲染 LaTeX 的开源库</p>
+</li>
+<li><p>math render online service, 提供公式解析为图片外链服务的网站, 知乎, 掘金都有</p>
+</li>
+<li><p>katex, 号称“最快”的数学公式渲染库, 同 mathjax</p>
+</li>
+<li><p>行内, 行外, <figure class="highlight plain"><figcaption><span>$$123$$``` </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 分数, ```$\frac&#123;x&#125;&#123;y&#125;$``` =&gt; $\frac&#123;x&#125;&#123;y&#125;$</span><br><span class="line">- 上下标, ```x^1, x_1, x^&#123;123&#125;_i```=&gt;$x^1, x_1, x^&#123;123&#125;_i$</span><br><span class="line">- 累加, ```\sum_&#123;a=0&#125;^&#123;k&#125; ``` =&gt; $$\sum_&#123;a=0&#125;^&#123;k&#125;$$</span><br><span class="line">- 数学符号, 参考 [LATEX Mathematical Symbols](https://www.caam.rice.edu/~heinken/latex/symbols.pdf)</span><br><span class="line">- 分段函数</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>y=\begin{cases}<br>-x,\quad x\leq 0 \\<br>x,\quad x&gt;0<br>\end{cases}<br>$$<br>```<br>$$<br>y=\begin{cases}<br>-x,\quad x\leq 0 \\<br>x,\quad x&gt;0<br>\end{cases}<br>$$</p>
+</li>
+<li><p>分行 <code>\newline</code> $$13\newline13$$</p>
+</li>
+<li><p>空格 <code>a\ b, a \quad b</code> =&gt; $a\ b, a \quad b$</p>
+</li>
+<li><p>文本 <code>\text{s.t.}</code> =&gt; $\text{s.t.}$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="总纲"><a href="#总纲" class="headerlink" title="总纲"></a>总纲</h4><ol>
 <li>精确简短的描述</li>
 <li>清晰可复现的例子</li>
 <li>方法与原理兼有<blockquote>
@@ -73,19 +122,27 @@
 <li>英文与中文相隔</li>
 </ol>
 <p>19.10.? - 让重点更加明显, 加重某些<strong>词</strong></p>
-<p>19.11.2 - 避免出现只甩链接的情况, 而是<strong>扩展</strong>可阅读。</p>
+<p><strong>19.11.2</strong> - 避免出现只甩链接的情况, 而是<strong>扩展</strong>可阅读。</p>
 <blockquote>
 <p>先将文中需要了解的都讲解清楚, 再放出参考来源或者扩展可以阅读</p>
 </blockquote>
-<p>19.11.4 - <strong>探索</strong>一下<strong>表情包</strong>如何用在博客里</p>
+<p><strong>19.11.4</strong> - <strong>探索</strong>一下<strong>表情包</strong>如何用在博客里</p>
 <blockquote>
 <p>最好短一点, 行内形式的, 当然比较大的形式有意思的话也是可以放出来的</p>
+<ul>
+<li>设置了搜狗输入法的颜文字, 不记熟颜文字对应的词语的话没法键盘流, 得靠按下分号后自己选</li>
+<li>emoji, 使用形式 - 正文直接插入(用 # 控制大小), 使用方法 - <a href="http://emojihomepage.com/" target="_blank" rel="noopener">emojiHomepage😂</a>, <strong>win + .</strong> (超好用)<br>注意, 多个答案有用 - <a href="https://www.zhihu.com/question/41438092" target="_blank" rel="noopener">电脑上如何输入 Emoji 表情?</a></li>
+</ul>
 </blockquote>
-<p>19.11.4 - 写作<strong>模板</strong>探索(一切为了更好的前进!)</p>
-<p>19.11.5 - 链接之间用 <code>-</code> 来分隔开</p>
-<p>19.11.9 - <strong>必有</strong> demo 在 ref 文件夹中, 并放在文章最前面(可以选择是否展开), 因此写了一个 demo.js 用于展示, 等完善以后再写一篇相关的 tips</p>
-<p>19.11.13 - 扩展阅读需要讲明里头是写什么</p>
-<p>19.11.13 - tips 栏目<strong>考虑</strong></p>
+<p><strong>19.11.4</strong> - 写作<strong>模板</strong>探索</p>
+<p><strong>19.11.5</strong> - 链接之间用 <code>-</code> 来分隔开</p>
+<p><strong>19.11.9</strong> - <strong>必有</strong> demo 在 ref 文件夹中, 并放在文章最前面(可以选择是否展开), 因此写了一个 demo.js 用于展示, 等完善以后再写一篇相关的 tips</p>
+<p><strong>19.11.13</strong> - 扩展阅读需要讲明里头是写什么</p>
+<p><strong>19.11.13</strong> - tips 栏目<strong>考虑</strong></p>
+<ul>
+<li><strong>19.12.19</strong> - 已经整好了😉</li>
+</ul>
+<p><strong>19.12.19</strong> - 新建 md 文件时不再考虑用中文起名, 这会导致中文 url 复制后是很长一串转义的网址, 对 seo 也不好</p>
 </div>
         </article>
         <div class="post-copyright">
@@ -97,13 +154,13 @@
         </div>
         <nav id="pagination">
           <div class="prev-post pull-left"><a href="/2019/11/04/打字动画效果/"><i class="fa fa-chevron-left">  </i><span>打字动画效果分析</span></a></div>
-          <div class="next-post pull-right"><a href="/2019/11/01/编程语言入门/"><span>编程语言入门</span><i class="fa fa-chevron-right"></i></a></div>
+          <div class="next-post pull-right"><a href="/2019/11/01/programming-study/"><span>编程语言入门</span><i class="fa fa-chevron-right"></i></a></div>
         </nav>
       </div>
     </div>
     <footer class="footer-bg" style="background-image: url(http://img.luckyray.cn/896653.jpg)">
       <div class="layout" id="footer">
-        <div class="copyright">&copy;2019 By null</div>
+        <div class="copyright">&copy;2019 - 2020 By null</div>
         <div class="framework-info"><span>驱动 - </span><a href="#"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="#"><span>diary</span></a></div>
       </div>
     </footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i>

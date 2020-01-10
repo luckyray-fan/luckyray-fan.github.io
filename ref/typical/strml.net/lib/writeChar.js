@@ -55,3 +55,4 @@ export function handleChar(fullText, char) {
   }
   return fullText;
 }
+</style>
