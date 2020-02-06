@@ -34,7 +34,7 @@
         <div class="author-info__name text-center"></div>
         <div class="author-info__description text-center">只能自己努力找乐子了</div>
         <hr>
-        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">22</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
+        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">23</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
         </div>
       </div>
     </div>
@@ -49,6 +49,22 @@
     </nav>
     <div id="content-outer">
       <div class="layout" id="content-inner">
+        <div class="recent-post-item article-container"><a class="article-title" href="/2019/09/29/prototype-new/">prototype new</a>
+          <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-29
+          </time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/js/">js</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Javascript/">Javascript</a></span>
+          <div class="content"><h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><p>首先来讲 new , 这个关键词主要就是用在创建类或函数的实例上的。当然, 类其实是构造函数的语法糖, 让语言的表达更直观。</p>
+<p>new 的操作流程如下:</p>
+<blockquote>
+<ol>
+<li>创建空的 JavaScript 对象, Object.create(null)</li>
+<li>指定构造函数, 绑定原型链, obj.__proto__ = Func.prototype</li>
+<li>绑定obj为this后运行 Func.call(obj,arguments) 获得返回值</li>
+<li>判断返回值是否为对象, 否定的话返回构造的对象, 肯定的话返回既定返回值</li>
+</ol>
+</blockquote>
+<p><a href="https://github.com/mqyqingfeng/Blog/issues/13" target="_blank" rel="noopener">具体可以看</a></p></div><a class="more" href="/2019/09/29/prototype-new/#more">阅读更多</a>
+          <hr>
+        </div>
         <div class="recent-post-item article-container"><a class="article-title" href="/2019/09/16/this-apply-call/">this,apply,call</a>
           <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-16
           </time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/js/">Javascript</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/js/">js</a></span>

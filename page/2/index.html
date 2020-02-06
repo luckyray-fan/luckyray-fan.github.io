@@ -34,7 +34,7 @@
         <div class="author-info__name text-center"></div>
         <div class="author-info__description text-center">只能自己努力找乐子了</div>
         <hr>
-        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">22</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
+        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">23</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
         </div>
       </div>
     </div>
@@ -49,6 +49,40 @@
     </nav>
     <div id="content-outer">
       <div class="layout" id="content-inner">
+        <div class="recent-post-item article-container"><a class="article-title" href="/2019/11/04/源码分析/">源码分析</a>
+          <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-04
+          </time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/源码分析/">源码分析</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/总结/">总结</a></span>
+          <div class="content"><ol>
+<li>凡是想要了解实现原理的就会去分析</li>
+<li>遇到有趣的就更要上了</li>
+<li>难也没关系, 来一个干一个, 来两个宰一双 &gt;&lt;</li>
+<li>(算法, 操作系统, 计网, 编译原理, 设计模式, 软件工程, 数学(机器学习, 图像处理))</li>
+</ol>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>学习实现原理, 代码组织, 满足好奇心</p>
+<h2 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h2><ol start="0">
+<li>需要有小的 demo 展示在最开始的地方</li>
+<li><strong>必须</strong>配置好相关环境, 部署好代码</li>
+<li>检查代码结构, 确认入口</li>
+<li>对于比较简单的, 走一遍<strong>流程</strong>, 困难的, 针对各个<strong>函数</strong></li>
+<li>分析功能的实现的<strong>最简执行单元</strong>, 判断参数重载, 错误捕捉等其他部分</li>
+<li>对其进行总结, 评价</li>
+</ol>
+<blockquote>
+<p><del>对于比较难的, 不要光看, clone 下来撸一会再简单实现一下</del>, <strong>必须要用复制下来看</strong><br>看到一个 console.error 打印堆栈的方法<br>现在 19.11.5 暂且对参数重载, 错误捕捉等不做要求, 假定所有输入调用<strong>常见且规范</strong></p>
+</blockquote>
+<h2 id="代码好坏评价"><a href="#代码好坏评价" class="headerlink" title="代码好坏评价"></a>代码好坏评价</h2><ol>
+<li>功能特性</li>
+<li>执行性能</li>
+<li>可读性</li>
+<li>文档与注释</li>
+<li>可扩展性</li>
+</ol>
+<blockquote>
+<p>关于可读性, 如果没有复用就不要分出函数来, 另外函数行数也不应该过长,最多80行, 3~40合适(等经验多了再看看)<br>19.11.6 - 没有踩过坑, 可扩展性部分较难判断出来<br>代码之外的, star数, 更新频率, issue<br>看看更加成熟的观点 - <a href="https://juejin.im/post/5ba9867a6fb9a05d1f220d2b" target="_blank" rel="noopener">精读《12 个评估 JS 库你需要关心的事》</a></p>
+</blockquote>
+</div>
+          <hr>
+        </div>
         <div class="recent-post-item article-container"><a class="article-title" href="/2019/11/04/打字动画效果/">打字动画效果分析</a>
           <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-04
           </time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/源码分析/">源码分析</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/动画效果/">动画效果</a></span>
@@ -270,7 +304,15 @@
         <div class="recent-post-item article-container"><a class="article-title" href="/2019/10/27/文件上传与小应用/">文件上传与小应用</a>
           <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-27
           </time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/tools/">tools</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/nodejs/">nodejs</a></span>
-          <div class="content"><h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>平时会碰到<code>上传文件</code>或者<code>用浏览器处理文件</code>等情况, 所以从前后端来写各自的原理与解决方法。</p>
+          <div class="content"><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><strong>原生, 没有package.json</strong></p>
+<p>将图片文件上传到电脑上, <a href="https://github.com/luckyray-fan/tips/tree/master/upload" target="_blank" rel="noopener">项目地址</a></p>
+<p><img src="/image/fileupload-00.png" alt="上传25张"></p>
+<p><img src="/image/fileupload-01.png" alt="前端显示"></p>
+<p><img src="/image/fileupload-02.png" alt="后端显示"></p>
+<blockquote>
+<p>之后用这个上传了几百张, 超喜欢的图嘿嘿😆</p>
+</blockquote>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>平时会碰到<code>上传文件</code>或者<code>用浏览器处理文件</code>等情况, 所以从前后端来写各自的原理与解决方法。</p>
 <h3 id="后端的上传处理-nodejs"><a href="#后端的上传处理-nodejs" class="headerlink" title="后端的上传处理 - nodejs"></a>后端的上传处理 - nodejs</h3><h4 id="原生的"><a href="#原生的" class="headerlink" title="原生的"></a>原生的</h4><p>从 nodejs 原生说起</p>
 <blockquote>
 <p>详细可以阅读 <a href="https://www.zhihu.com/question/58118565" target="_blank" rel="noopener">http：文件上传背后发生了什么？</a></p>
@@ -556,22 +598,6 @@
 <p><a href="https://github.com/JsAaron/jQuery" target="_blank" rel="noopener">前端JQuery系列</a></p>
 <p><a href="https://www.cnblogs.com/snandy/p/5836155.html" target="_blank" rel="noopener">jQuery 3.0的domManip浅析</a></p>
 </div>
-          <hr>
-        </div>
-        <div class="recent-post-item article-container"><a class="article-title" href="/2019/09/29/prototype-new/">prototype new</a>
-          <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-29
-          </time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/js/">js</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Javascript/">Javascript</a></span>
-          <div class="content"><h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><p>首先来讲 new , 这个关键词主要就是用在创建类或函数的实例上的。当然, 类其实是构造函数的语法糖, 让语言的表达更直观。</p>
-<p>new 的操作流程如下:</p>
-<blockquote>
-<ol>
-<li>创建空的 JavaScript 对象, Object.create(null)</li>
-<li>指定构造函数, 绑定原型链, obj.__proto__ = Func.prototype</li>
-<li>绑定obj为this后运行 Func.call(obj,arguments) 获得返回值</li>
-<li>判断返回值是否为对象, 否定的话返回构造的对象, 肯定的话返回既定返回值</li>
-</ol>
-</blockquote>
-<p><a href="https://github.com/mqyqingfeng/Blog/issues/13" target="_blank" rel="noopener">具体可以看</a></p></div><a class="more" href="/2019/09/29/prototype-new/#more">阅读更多</a>
           <hr>
         </div>
         <nav id="pagination">

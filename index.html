@@ -34,7 +34,7 @@
         <div class="author-info__name text-center"></div>
         <div class="author-info__description text-center">只能自己努力找乐子了</div>
         <hr>
-        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">22</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
+        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">23</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
         </div>
       </div>
     </div>
@@ -49,6 +49,75 @@
     </nav>
     <div id="content-outer">
       <div class="layout" id="content-inner">
+        <div class="recent-post-item article-container"><a class="article-title" href="/2020/02/02/nodejs-app-picpick/">nodejs 批量反向查询并下载原图</a>
+          <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-02
+          </time>
+          <div class="content"><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>采用了队列式的下载, 保证下载不停滞, 当搜索出的所有结果下载完成后才移动被搜索的图片<br>下面是第一批的结果, 截了部分图片, 另外这个是多次运行项目最后得到的结果(前期编写不完善), 从100张图片搜索共得到313张, 有4张图片无法查找到结果, 原因和改进都会在下方讲述</p>
+<blockquote>
+<p>现已经由250+图找到了700+图, 注意, 目前没有普适性(使用了七牛云, 虽然也写了 smms 但是没有使用), 项目仅供参考, <a href="https://github.com/luckyray-fan/picpick/tree/master" target="_blank" rel="noopener">项目地址</a></p>
+</blockquote>
+<p><img src="/image/picpick-1.png" alt="部分图片"></p>
+<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>这个项目和之前手机上传文件一样, 是有个明确的需求的, 因为经常用手机刷telegram, 平时积累了许多图片, 但是这些图片往往像素不高, 所以就得一个个查询原图下载</p>
+<h2 id="编写思路"><a href="#编写思路" class="headerlink" title="编写思路"></a>编写思路</h2><p>目的流程:  筛选出不清晰的图片 -&gt; 利用图片搜索结果 -&gt; 下载</p>
+<ul>
+<li>筛选: 如果图片大小小于300k就搜索</li>
+<li>搜索: 查询 sauce, ascii2d, iqdb</li>
+<li>下载: 解析查询结果, 使用 socket 代理建立连接下载(毕竟不少图片是 pixiv 和 twitter)</li>
+</ul>
+<blockquote>
+<p>关于网站查询结果<br>sauce: pixiv, twitter 居多, 能找到很多其他网站<br>ascii: pixiv, twitter<br>iqdb: 各大图库, 例如 danbooru<br>tineye: 没能解析, 使用了 cloud 防护, 尝试了 puppteer 后放弃了, 可以手动访问然后请求带上 cookie 试试</p>
+</blockquote>
+<h2 id="流程细节"><a href="#流程细节" class="headerlink" title="流程细节"></a>流程细节</h2><p>下方编写整个项目遇到的问题和解决的方法, 如何找到bug, 如何增强功能等</p>
+<h3 id="建立整个项目基础"><a href="#建立整个项目基础" class="headerlink" title="建立整个项目基础"></a>建立整个项目基础</h3><p>google了一下相关的查询方案, 参考了这个项目 <a href="https://github.com/Tsuk1ko/CQ-picfinder-robot/tree/master/modules" target="_blank" rel="noopener">CQ-picfinder-robot</a>, 决定使用 sauce 和 ascii 来查询, 然后项目编写一个配置文件, 项目的请求采用 Axios, 用代理的方式为 httpsAgent</p>
+<h3 id="获取需要查询的图片"><a href="#获取需要查询的图片" class="headerlink" title="获取需要查询的图片"></a>获取需要查询的图片</h3><p>在配置文件里写好路径, 图片文件路径 <code>source</code>, 检测不清晰后移动的路径 <code>lowQuality</code>, 查询完成后移动出来的路径 <code>out</code>, 然后调用node 文件系统的 api, 使用 <code>statsync</code> 判断文件还是文件夹, <code>file-type</code> 判断文件类型</p>
+<p>之前决定用 sauce 来查询, 利用 <code>url</code> 字段传递想要查询的图片, 那么现在就需要一个中继的服务器, 一开始浏览了 smms, imgur 等图床, 后面决定使用早就实名好的七牛云来上传</p>
+<p><strong>遇到的问题</strong></p>
+<ul>
+<li>file-type 是异步的: 使用 await 获取最终返回值, 将原本同步的函数加上 async</li>
+<li>七牛云 api 是回调的方式: 这个和整体清一色 await 不一致, 为了捕获到最后执行完成然后将结果返回给外部, 使用 <code>setInterval</code> 来查询 <code>flag</code> 的状态, 如果为真, 意味着上传完成执行 <code>Promise</code> 回调中的 <code>resolve</code>, 将值传给外部<br><img src="/image/picpick-2.png" alt="回调捕捉"></li>
+</ul>
+<h3 id="建立查询方式"><a href="#建立查询方式" class="headerlink" title="建立查询方式"></a>建立查询方式</h3><p>使用 sauce, 利用相似度来判断第一步, 若未成功用 ascii 的色合检索来接力, 如果 ascii 也失败了的话使用 iqdb 来进行最后一步查询</p>
+<ul>
+<li><strong>如何查询的</strong>:<ul>
+<li>sauce: 注册账号后可以查看其 api 说明, 当然也可以看看 github 上相关的说明, 这个是直接发请求然后解析返回的值就好了, 从返回的 <code>limit</code> 字段可以明确知道有多少的限制</li>
+<li>ascii: 发送请求然后解析返回的页面, 可以将返回的 url 中的 color 替换为 bovw 再请求一次, 也就是获得特征检索的结果, 详细描述我写在了 github 的 ascii 文件中</li>
+<li>iqdb: 发送请求解析返回的页面</li>
+</ul>
+</li>
+<li><strong>错误处理</strong>: 因为采取的都是 await 的写法, 捕捉到错误后将错误打印然后返回一个指定的值, 外界得到返回的值判断是否成功</li>
+<li><strong>sauce 429</strong>:<ul>
+<li><strong>代理池</strong>, 编写 proxyPool, 解析各大公开代理的网站<ul>
+<li>这些网站对于爬虫似乎限制挺大的, 因此加了出现错误延时再试的机制, 访问也都带了 <code>user-agent</code> 和 <code>refer</code>, 对于使用了 cloud 防护的需要手动获取 cookie, 更多可以查到国内可用 ip 的解析网站可以去 github 找一找</li>
+<li>测试 ip 的可用性是通过访问能<a href="https://icanhazip.com/" target="_blank" rel="noopener">返回请求的ip的网站</a>, 判断与现在使用的代理 ip 是否相同</li>
+<li>部分代理网站和测试代理 ip 时连接上但是迟迟不返回, 一开始依照惯例给了 timeout, 然后发现了这个超时的区别不同, 分别有连接和读取超时, 于是采用 axios 的 cancel, 如果超过一定时间直接取消掉, 详细可以看 <a href="https://juejin.im/post/5de0ddbf51882523467752b8" target="_blank" rel="noopener">ECONNRESET VS ETIMEDOUT</a></li>
+<li>注意不要使用 axios cancel 掉的请求捕捉错误的值来赋值, 它的 valueof 方法似乎有点问题, 会递归然后溢出</li>
+</ul>
+</li>
+<li>连接重试, 每一次换一个 ip 进行请求, 这里没有使用本地 ip 的请求, 都是由 ssr 和 公开代理提供的</li>
+</ul>
+</li>
+<li><strong>iqdb 返回image type error</strong>: iqdb 不支持某些格式的图片, 查看出错的图片, 发现后缀名和 exif 信息不匹配, 于是使用了七牛云的图片处理接口, 所有图片强制转换为 jpg</li>
+</ul>
+<h3 id="下载机制"><a href="#下载机制" class="headerlink" title="下载机制"></a>下载机制</h3><p>根据之前反向搜索查到的网址, 解析网站获取图片地址, 然后依次下载, 如果解析失败, 使用 iqdb 专搜图库再来一次, 如果下载失败, 进行重试(看看有没有这个需求, 尚未完善)</p>
+<ul>
+<li><strong>直接爬取 pixiv</strong>: github 上搜索了一下, 有相关的库, 但是在此之前我已经找到了别人提供的 api 了<ul>
+<li><strong>发现这个 api 有时超时</strong>, 又找到了 pixiv.cat, 做了后手, 保证解析</li>
+</ul>
+</li>
+<li><strong>下载会卡住</strong>:<ul>
+<li>同文件系统建立连接需要使用到线程池, node 默认的线程池大小为 4 条, 发出网络链接却不会用到, 所以查询很快, 但是下载很容易卡住, 详细可以看 <a href="https://juejin.im/post/5b1e55cbe51d45067e6fcb84" target="_blank" rel="noopener">什么东西会占线程池</a>, <a href="https://stackoverflow.com/questions/22644328/when-is-the-thread-pool-used" target="_blank" rel="noopener">when is thread pool used</a><ul>
+<li>使用下载队列的模式, 固定最大同时可以进行连接的数量为 4, 用 setTimeout 事件循环来判断是否处理完毕</li>
+<li>可以多加几个线程, 不过 windows 需要带参数启动, 我没试</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>内存同步</strong>: js 不会出现这个函数执行到一半跳到另一个函数上, 所以不用写信号量什么的</li>
+</ul>
+<h3 id="错误提醒-日志打印"><a href="#错误提醒-日志打印" class="headerlink" title="错误提醒, 日志打印"></a>错误提醒, 日志打印</h3><p>为了查找出可能的 bug, 建立一个完善的错误打印机制是很有必要的, 使用了 <code>progress</code> 来检测下载进度, <code>log4js</code> 打印日志, 同时每张图片的查询都会伴随一个图片的信息对象, 每个查询的结果都会保存在其中, 在最后提示出来</p>
+</div>
+          <hr>
+        </div>
         <div class="recent-post-item article-container"><a class="article-title" href="/2020/01/03/computer-network/">计算机网络</a>
           <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-03
           </time>
@@ -1122,6 +1191,7 @@
 <li>提交后需要等好几秒才有结果, 多刷新</li>
 <li>提交可以多次, 可以多尝试</li>
 <li>python 考试用的是 idle, 里面有文档, 可以 debug, 能缩进</li>
+<li>19.12 只有250分 = =</li>
 </ul>
 <h3 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h3><ul>
 <li>输入用input(), 输出多个在一行只需要print函数中打逗号, 分割为数组可以用 split</li>
@@ -1167,7 +1237,28 @@
 <ol start="0">
 <li>文章内容组织和博客内容划分</li>
 <li>jquery plugin</li>
-<li>promise</li>
+<li>promise, promise 中的异常处理<ul>
+<li><a href="http://jamesknelson.com/are-es6-promises-swallowing-your-errors/" target="_blank" rel="noopener"> promise error swallowed</a><ul>
+<li>logger, this.log is not a function</li>
+</ul>
+</li>
+<li><a href="https://zellwk.com/blog/async-await-in-loops/" target="_blank" rel="noopener">await in loop</a></li>
+<li><a href="https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop" target="_blank" rel="noopener">map, for await</a></li>
+<li>async cancel, 程序仍在运行的原因</li>
+<li>HTTP 常见错误<ul>
+<li><a href="https://juejin.im/post/5de0ddbf51882523467752b8" target="_blank" rel="noopener">ECONNRESET VS ETIMEDOUT</a></li>
+</ul>
+</li>
+<li><a href="https://segmentfault.com/a/1190000014926921" target="_blank" rel="noopener">nodejs真的是单线程吗？</a></li>
+<li><a href="https://cnodejs.org/topic/555963317cabb7b45ee6be67" target="_blank" rel="noopener">nodejs 内存同步</a></li>
+<li><a href="https://lz5z.com/%E7%9C%9F-Node%E5%A4%9A%E7%BA%BF%E7%A8%8B/" target="_blank" rel="noopener">真-Node多线程</a></li>
+<li><a href="https://www.zhihu.com/question/54137163" target="_blank" rel="noopener">js是单线程的，setimeout计时是什么来执行？</a></li>
+<li>有争议:<a href="https://juejin.im/post/5b1e55cbe51d45067e6fcb84" target="_blank" rel="noopener">什么东西会占线程池</a><ul>
+<li><a href="https://stackoverflow.com/questions/22644328/when-is-the-thread-pool-used" target="_blank" rel="noopener">when is thread pool used</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>源码分析</li>
 <li>算法</li>
 <li>打字动画效果</li>
@@ -1377,40 +1468,6 @@
 <h4 id="哈希表-1"><a href="#哈希表-1" class="headerlink" title="哈希表"></a>哈希表</h4><p>根据哈希数据结构而来, 时间复杂度为 O(1)</p>
 <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>// TODO 2020.3 之前</p>
 <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h4><h4 id="shuffle-洗牌"><a href="#shuffle-洗牌" class="headerlink" title="shuffle 洗牌"></a>shuffle 洗牌</h4></div>
-          <hr>
-        </div>
-        <div class="recent-post-item article-container"><a class="article-title" href="/2019/11/04/源码分析/">源码分析</a>
-          <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-04
-          </time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/源码分析/">源码分析</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/总结/">总结</a></span>
-          <div class="content"><ol>
-<li>凡是想要了解实现原理的就会去分析</li>
-<li>遇到有趣的就更要上了</li>
-<li>难也没关系, 来一个干一个, 来两个宰一双 &gt;&lt;</li>
-<li>(算法, 操作系统, 计网, 编译原理, 设计模式, 软件工程, 数学(机器学习, 图像处理))</li>
-</ol>
-<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>学习实现原理, 代码组织, 满足好奇心</p>
-<h2 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h2><ol start="0">
-<li>需要有小的 demo 展示在最开始的地方</li>
-<li><strong>必须</strong>配置好相关环境, 部署好代码</li>
-<li>检查代码结构, 确认入口</li>
-<li>对于比较简单的, 走一遍<strong>流程</strong>, 困难的, 针对各个<strong>函数</strong></li>
-<li>分析功能的实现的<strong>最简执行单元</strong>, 判断参数重载, 错误捕捉等其他部分</li>
-<li>对其进行总结, 评价</li>
-</ol>
-<blockquote>
-<p><del>对于比较难的, 不要光看, clone 下来撸一会再简单实现一下</del>, <strong>必须要用复制下来看</strong><br>看到一个 console.error 打印堆栈的方法<br>现在 19.11.5 暂且对参数重载, 错误捕捉等不做要求, 假定所有输入调用<strong>常见且规范</strong></p>
-</blockquote>
-<h2 id="代码好坏评价"><a href="#代码好坏评价" class="headerlink" title="代码好坏评价"></a>代码好坏评价</h2><ol>
-<li>功能特性</li>
-<li>执行性能</li>
-<li>可读性</li>
-<li>文档与注释</li>
-<li>可扩展性</li>
-</ol>
-<blockquote>
-<p>关于可读性, 如果没有复用就不要分出函数来, 另外函数行数也不应该过长,最多80行, 3~40合适(等经验多了再看看)<br>19.11.6 - 没有踩过坑, 可扩展性部分较难判断出来<br>代码之外的, star数, 更新频率, issue<br>看看更加成熟的观点 - <a href="https://juejin.im/post/5ba9867a6fb9a05d1f220d2b" target="_blank" rel="noopener">精读《12 个评估 JS 库你需要关心的事》</a></p>
-</blockquote>
-</div>
           <hr>
         </div>
         <nav id="pagination">
