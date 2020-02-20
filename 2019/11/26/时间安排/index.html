@@ -37,14 +37,14 @@
         <div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span>
           <div class="sidebar-toc__progress-bar"></div>
         </div>
-        <div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#TODO"><span class="toc-number">1.</span> <span class="toc-text">TODO</span></a></li></ol></div>
+        <div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#TODO"><span class="toc-number">1.</span> <span class="toc-text">TODO</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#紧急注意"><span class="toc-number"></span> <span class="toc-text">紧急注意</span></a></li></div>
       </div>
       <div class="author-info hide">
         <div class="author-info__avatar text-center"><img src="/img/avatar.png"></div>
         <div class="author-info__name text-center"></div>
         <div class="author-info__description text-center">只能自己努力找乐子了</div>
         <hr>
-        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">23</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
+        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">25</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
         </div>
       </div>
     </div>
@@ -63,10 +63,14 @@
         <article id="post">
           <div class="article-container" id="post-content"><h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><p>首要任务: hexo-history<br>然后: hexo, pug 等博客设计相关</p>
 <p>完成顺序无特别注意不分先后</p>
-<ol start="0">
-<li>文章内容组织和博客内容划分</li>
-<li>jquery plugin</li>
-<li>promise, promise 中的异常处理<ul>
+<ul>
+<li>[] 文章内容组织和博客内容划分<ul>
+<li><input disabled type="checkbox"> 编写diary主题</li>
+<li><input disabled type="checkbox"> demo 展示编写<a id="more"></a></li>
+</ul>
+</li>
+<li><input disabled type="checkbox"> <del>jquery plugin</del></li>
+<li><input disabled type="checkbox"> promise, promise 中的异常处理<ul>
 <li><a href="http://jamesknelson.com/are-es6-promises-swallowing-your-errors/" target="_blank" rel="noopener"> promise error swallowed</a><ul>
 <li>logger, this.log is not a function</li>
 </ul>
@@ -88,12 +92,34 @@
 </li>
 </ul>
 </li>
-<li>源码分析</li>
-<li>算法</li>
-<li>打字动画效果</li>
-<li>数据结构与算法设计 2020.3 之前</li>
-<li>hexo-history</li>
-</ol>
+<li><input disabled type="checkbox"> 源码分析<ul>
+<li>axios</li>
+<li>vue</li>
+<li>webpack</li>
+</ul>
+</li>
+<li><input disabled type="checkbox"> 算法<ul>
+<li><input disabled type="checkbox"> leetcode interview</li>
+</ul>
+</li>
+<li><input disabled type="checkbox"> 打字动画效果 (不是很打算搞)</li>
+<li><input checked disabled type="checkbox"> 数据结构与算法设计 2020.3 之前</li>
+<li><input disabled type="checkbox"> hexo-history</li>
+<li><input disabled type="checkbox"> bilibili-live-tool 改成 nodejs</li>
+</ul>
+<h2 id="紧急注意"><a href="#紧急注意" class="headerlink" title="紧急注意"></a>紧急注意</h2><p>要进比较好的公司实习, vue 或 react 是必须的, 虽然学过一段时间的 react, 但是没有啥用, 现在又看完了 vue 的教程, 决定:</p>
+<ul>
+<li>查看前端实习面经中对 vue 的询问, 找些 vue 项目学一学<ul>
+<li>大部分是问问虚拟 dom, diff 算法</li>
+</ul>
+</li>
+<li>改写 picpick 为图形页面的应用, 使用 vue 来开发, ts, 打包工具用 webpack (好在这些我都用过)<ul>
+<li>如果还有时间, 完成 hexo-history, 用 vue ( •̀ ω •́ )✧</li>
+<li>如果还有时间, 把 diary 主题写出来, 用 vue ( •̀ ω •́ )✧</li>
+</ul>
+</li>
+<li>复习基础知识, 刷面经题 (面之前留两周, 边面边学 = =)</li>
+</ul>
 </div>
         </article>
         <div class="post-copyright">
@@ -134,5 +160,5 @@
         $('footer').addClass('is-mobile')
       }
     </script>
-  </body>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script><script src="/hexo-history-main.js"></script><script>HexoHistory({});</script></body>
 </html>

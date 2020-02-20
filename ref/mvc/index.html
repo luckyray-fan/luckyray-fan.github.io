@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="只能自己努力找乐子了">
+    <meta name="keywords" content="">
+    <meta name="author">
+    <meta name="copyright">
+    <title>_(:з」∠)_ | luckyray</title><link rel="shortcut icon" href="/favicons.ico">
+    <link rel="stylesheet" href="/css/index.css?version=1.6.1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1">
+    <link rel="dns-prefetch" href="https://cdn.staticfile.org">
+    <link rel="dns-prefetch" href="https://cdn.bootcss.com">
+    <link rel="dns-prefetch" href="https://creativecommons.org">
+    <script>
+      var GLOBAL_CONFIG = {
+        root: '/',
+        algolia: undefined,
+        localSearch: undefined,
+        copy: {
+          success: '复制成功',
+          error: '复制错误',
+          noSupport: '浏览器不支持'
+        }
+      }
+    </script>
+  </head>
+  <body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i>
+    <div id="sidebar">
+      <div class="author-info">
+        <div class="author-info__avatar text-center"><img src="/img/avatar.png"></div>
+        <div class="author-info__name text-center"></div>
+        <div class="author-info__description text-center">只能自己努力找乐子了</div>
+        <hr>
+        <div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">25</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a>
+        </div>
+      </div>
+    </div>
+    <nav id="nav" style="background-image: url(http://img.luckyray.cn/896653.jpg)">
+      <div id="page-header"><span class="pull-left"> <a id="site-name" href="/">luckyray</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div>
+      <div id="site-info">
+        <div id="site-title">luckyray</div>
+        <div id="site-sub-title">_(:з」∠)_</div>
+        <div id="site-social-icons"><a class="social-icon" href="https://github.com/yoshiro_fan"><i class="fa-github fa"></i></a>
+        </div>
+      </div>
+    </nav>
+    <div id="content-outer">
+      <div class="layout" id="content-inner">
+        <article id="page">
+          <h1></h1>
+          <div class="article-container"><!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      img {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="list"></ul>
+    <section class="clickArea">
+      <img src class="img">
+      <p class="count"></p>
+      <p class="name"></p>
+    </section>
+
+    <script>
+      var model = (function() {
+        var _model = {
+          imgLists: [
+            {
+              src: 'http://img.luckyray.cn/test.jpg',
+              name: 'test',
+              count: 0
+            },
+            {
+              src: 'http://img.luckyray.cn/test.jpg',
+              name: 'test1',
+              count: 0
+            }
+          ],
+          targetImgIndex: 0
+        };
+        function getImgLists() {
+          return _model.imgLists;
+        }
+        function getTarget() {
+          return _model.imgLists[_model.targetImgIndex];
+        }
+        function setTarget(name) {
+          _model.imgLists.some((imgObj, index) => {
+            if (imgObj.name === name) {
+              _model.targetImgIndex = index;
+              return true;
+            }
+          });
+        }
+        function addTargetCount() {
+          var imgObj = _model.imgLists[_model.targetImgIndex];
+          imgObj.count += 1;
+        }
+        return {
+          getImgLists,
+          getTarget,
+          setTarget,
+          addTargetCount
+        };
+      })();
+      var view = (function() {
+        var img = document.querySelector('img'),
+          name = document.querySelector('.name'),
+          count = document.querySelector('.count');
+        function init(imgLists, targetObj) {
+          var list = document.querySelector('.list');
+          var fragment = document.createDocumentFragment();
+          for (let i = 0, len = imgLists.length; i < len; i++) {
+            var li = document.createElement('li');
+            var name = imgLists[i].name;
+            li.innerHTML = name;
+            li.addEventListener('click', function() {
+              controller.changeTarget(name);
+            });
+            fragment.appendChild(li);
+          }
+          list.appendChild(fragment);
+          img.addEventListener('click', function() {
+            controller.addCount(name);
+          });
+          render(targetObj);
+        }
+        function render(targetObj) {
+          img.src = targetObj.src;
+          name.innerHTML = targetObj.name;
+          count.innerHTML = targetObj.count;
+        }
+        return {
+          init,
+          render
+        };
+      })();
+      var controller = {
+        addCount(name) {
+          model.addTargetCount(name);
+          controller.renderView();
+        },
+        changeTarget(name) {
+          model.setTarget(name);
+          controller.renderView();
+        },
+        init() {
+          var { getImgLists, getTarget } = model;
+          view.init(getImgLists(), getTarget());
+        },
+        renderView() {
+          view.render(model.getTarget());
+        }
+      };
+      controller.init();
+    </script>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script><script src="/hexo-history-main.js"></script><script>HexoHistory({});</script></body>
+</html>
+</div>
+        </article>
+        <nav id="pagination">
+          <div class="pagination">
+          </div>
+        </nav>
+      </div>
+    </div>
+    <footer class="footer-bg" style="background-image: url(http://img.luckyray.cn/896653.jpg)">
+      <div class="layout" id="footer">
+        <div class="copyright">&copy;2019 - 2020 By null</div>
+        <div class="framework-info"><span>驱动 - </span><a href="#"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="#"><span>diary</span></a></div>
+      </div>
+    </footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script>
+    <script src="/js/utils.js?version=1.6.1"></script>
+    <script src="/js/fancybox.js?version=1.6.1"></script>
+    <script src="/js/sidebar.js?version=1.6.1"></script>
+    <script src="/js/copy.js?version=1.6.1"></script>
+    <script src="/js/fireworks.js?version=1.6.1"></script>
+    <script src="/js/transition.js?version=1.6.1"></script>
+    <script src="/js/scroll.js?version=1.6.1"></script>
+    <script src="/js/head.js?version=1.6.1"></script>
+    <script>
+      if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        $('#nav').addClass('is-mobile')
+        $('footer').addClass('is-mobile')
+      }
+    </script>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script><script src="/hexo-history-main.js"></script><script>HexoHistory({});</script></body>
+</html>
