@@ -52,7 +52,7 @@
         <div class="recent-post-item article-container"><a class="article-title" href="/2020/02/19/hexo-history/">hexo history 插件开发</a>
           <time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-19
           </time>
-          <div class="content"><h2 id="开端"><a href="#开端" class="headerlink" title="开端"></a>开端</h2><p>因为写文章经常想要看看以前写的是啥, 又怎么改过来的, 所以编写了这个插件, 最早的想法起于十月<br>详细使用方法可见 <a href></a></p>
+          <div class="content"><h2 id="开端"><a href="#开端" class="headerlink" title="开端"></a>开端</h2><p>因为写文章经常想要看看以前写的是啥, 又怎么改过来的, 所以编写了这个插件, 最早的想法起于十月<br>详细使用方法可见 <a href="https://github.com/luckyray-fan/hexo-history" target="_blank" rel="noopener">hexo-history</a></p>
 <h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>右下角尝试一下就好</p>
 <h2 id="简介与发展"><a href="#简介与发展" class="headerlink" title="简介与发展"></a>简介与发展</h2><p>最早时想的是能够对比出上一次文章的差异, 所以不知道自己想要什么效果, 执行的流程又是如何, 现在整个核心思想应该是<strong>展示旧文章是如何转变为新文章的</strong>, 通过删除, 新增, 更改来标注段落</p>
 <p>但是到现在,只完成了能够查看以前写的是啥, 最想写的文章更改还差部分, 所以预计将会在面试结束前后完成</p>
@@ -84,11 +84,11 @@
 <li>希望能动态生成<ul>
 <li>用 js 读取文字长度再转为像素, 设定几个div加上css</li>
 <li>将 p 标签全部转为 span 等行内标签就可以自适应长度, 再用css显示</li>
-<li>嫌麻烦, 就这样了<h3 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h3></li>
+<li>嫌麻烦, 就这样了</li>
 </ul>
 </li>
 </ul>
-<p>采用 fetch 请求, 就没必要写回调, 直接 await 清清楚楚, 同时有 sessionstorage, 存储下请求, 防止多次访问</p>
+<h3 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h3><p>采用 fetch 请求, 就没必要写回调, 直接 await 清清楚楚, 同时有 sessionstorage, 存储下请求, 防止多次访问</p>
 <h3 id="节点渲染"><a href="#节点渲染" class="headerlink" title="节点渲染"></a>节点渲染</h3><p>用 iframe 在内部挂载好事件监听load再返回, 力求一致</p>
 <p><strong>遇到的问题</strong></p>
 <ul>
