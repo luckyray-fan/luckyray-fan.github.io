@@ -61,7 +61,7 @@
       </div>
       <div class="layout" id="content-inner">
         <article id="post">
-          <div class="article-container" id="post-content"><h2 id="开端"><a href="#开端" class="headerlink" title="开端"></a>开端</h2><p>因为写文章经常想要看看以前写的是啥, 又怎么改过来的, 所以编写了这个插件, 最早的想法起于十月</p>
+          <div class="article-container" id="post-content"><h2 id="开端"><a href="#开端" class="headerlink" title="开端"></a>开端</h2><p>因为写文章经常想要看看以前写的是啥, 又怎么改过来的, 所以编写了这个插件, 最早的想法起于十月<br>详细使用方法可见 <a href></a></p>
 <h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>右下角尝试一下就好</p>
 <h2 id="简介与发展"><a href="#简介与发展" class="headerlink" title="简介与发展"></a>简介与发展</h2><p>最早时想的是能够对比出上一次文章的差异, 所以不知道自己想要什么效果, 执行的流程又是如何, 现在整个核心思想应该是<strong>展示旧文章是如何转变为新文章的</strong>, 通过删除, 新增, 更改来标注段落</p>
 <p>但是到现在,只完成了能够查看以前写的是啥, 最想写的文章更改还差部分, 所以预计将会在面试结束前后完成</p>
@@ -75,6 +75,7 @@
 </ul>
 <h2 id="建立整个项目的基础"><a href="#建立整个项目的基础" class="headerlink" title="建立整个项目的基础"></a>建立整个项目的基础</h2><p>找到了 <a href="https://github.com/pomber/git-history" target="_blank" rel="noopener">git-history</a> 项目, github 相关 api, 然后根据 <a href="https://github.com/EYHN/hexo-helper-live2d" target="_blank" rel="noopener">hexo-helper-live2d</a>, 了解了 hexo 注册方法, 此时正式开始</p>
 <h2 id="流程细节"><a href="#流程细节" class="headerlink" title="流程细节"></a>流程细节</h2><h3 id="hexo-注册"><a href="#hexo-注册" class="headerlink" title="hexo 注册"></a>hexo 注册</h3><p>hexo 可以用 vscode debug, 具体可见 <a href="https://gary5496.github.io/2018/03/nodejs-debugging/" target="_blank" rel="noopener">hexo debug</a></p>
+<p>另外, hexo server 的内容似乎用 hexo generate 更新后也不会改变, 所以让我出现不少蜜汁操作</p>
 <blockquote>
 <p>本来使用 after_render:html 参数基本解决插入脚本的问题, 可是想要只让 post 文章中才显示, 所以测试了filter 中的 after_post_render 参数, 在 issue 中了解到应该是新建一个 post 的时候才会调用, 又尝试了其他参数, 和 processor, renderer 等扩展注册, 都没法解决问题, 看来应该只能在执行的时候判断了,<strong>现在搁置</strong></p>
 </blockquote>
@@ -161,5 +162,5 @@
         $('footer').addClass('is-mobile')
       }
     </script>
-  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script> <script>window.hexoHistoryConfig = JSON.parse({"repo":"luckyray-fan/luckyray-fan.github.io","token":"1d5107f3e8a6dd270b60bb70ffce79485b387e53","theme":"melody"});</script> <script src="/hexo-history-main.js"></script></body>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script> <script>window.hexoHistoryConfig = {"repo":"luckyray-fan/luckyray-fan.github.io","token":"1d5107f3e8a6dd270b60bb70ffce79485b387e53","theme":"melody"}</script> <script src="/hexo-history-main.js"></script></body>
 </html>
