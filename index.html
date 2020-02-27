@@ -57,40 +57,7 @@
 <p><a href="https://juejin.im/post/5909db2fda2f60005d2093db#heading-11" target="_blank" rel="noopener">[布局概念] 关于CSS-BFC深入理解</a></p>
 <p>看着点赞数和内容的丰富程度应该是没问题, 稍后再总结一下应该没问题, 然后我就略过去了</p>
 <p>当正式仔细看的时候就发现, 结构有点不大对啊, 看这右边的结构, emmm</p>
-<p><img src="/image/article-trace-1.png" alt></p>
-<p>先忽略了, 然后继续看, 看到了这个, 好像…以前见过</p>
-<p><img src="/image/article-trace-2.png" alt></p>
-<p>行吧, 应该和我一样是知识总结类型的拼凑文= =, 直接拉到了最下面, 果然有不少参考链接, 随手点了进去</p>
-<p><img src="/image/article-trace-3.png.png" alt></p>
-<p><a href="https://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html" target="_blank" rel="noopener">前端精选文摘：BFC 神奇背后的原理</a></p>
-<p><strong>看下面的内容</strong>:</p>
-<blockquote>
-<p>BFC布局规则：<br>内部的Box会在垂直方向，一个接一个地放置。<br>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠<br>每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。<br>BFC的区域不会与float box重叠。<br>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。<br>计算BFC的高度时，浮动元素也参与计算</p>
-</blockquote>
-<p>好吧, 很像, 然后我就根据这篇文章继续了, 在看到下部分的内容的时候, 计算高度浮动也在内, 嗯, 实验一下吧</p>
-<p>想当然的在 codeopen 里测试了一下, 然而没有计算在内</p>
-<p><img src="/image/article-trace-4.png" alt></p>
-<p><img src="/image/article-trace-5.png" alt></p>
-<p>为什么呢, 所以我谷歌了一下 <code>body 无法设置 bfc</code>, 搜索到了一篇文章</p>
-<p><a href="https://www.cnblogs.com/diantao/p/6025547.html" target="_blank" rel="noopener">神奇的BFC以及被忽略的东西</a></p>
-<p>开幕就发现了, 嗯, 不只是眼熟的程度, 这不几乎一样吗, 只是内容更加丰富了</p>
-<p><img src="/image/article-trace-6.png" alt></p>
-<p>好吧, 那就先停一下, 解决一下问题, 原来使用 <code>overflow:hidden</code> 只有块级元素没有扩散到视口才会触发BFC, 我是真的撞得巧🤣, 更巧的是还有中文, 不然我得去Stack Overflow看看了</p>
-<blockquote>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Viewport_concepts" target="_blank" rel="noopener">视口概念</a></p>
-</blockquote>
-<p>再回过头看下之前的文章 <img src="/image/article-trace-7.png" alt></p>
-<p>精选文章, 猜一猜应该有来源, 拖到最底下, 找到了</p>
-<p><img src="/image/article-trace-8.png" alt></p>
-<p>果然有原文来自, 很遗憾, 一点进去, 已经没有该文章了, 看来又是一篇消失在互联网中的文章, 那么搜图走一个</p>
-<p><img src="/image/article-trace-9.png" alt></p>
-<blockquote>
-<p><a href="https://www.google.com/search?tbs=sbi:AMhZZiurDTcU4uJJZ1UPLvmFhDE32aWurcksQfiMp245pHgtOkw-Q_1HmMBrDBdwnIbBdfYJQ126mlRD1Jk6yw4FG8zuNMN_1nGwnTq3C7wMjSriPX2UdnqMpH2YxmvD9MjW9ZTY3JWm0qGK_1MLXUC3P3aEocA5sVM6DIC0g6Vmqmejn6R2G6pLrSuUn4B_1a4ae48F6DvX8ZkHzCfFe7yxJP1249Rb0SucqzjQytilo62HUMnzLRI57frGwBzumj6mcQxJV8kY_1pI-bQgySAwqvpn-sWYAddb2C_17GMVzghODpQDghAuVOGL6PxGK_18g6kV-blNsGnMbjIjw885m70nAmF6LFLlchQDA" target="_blank" rel="noopener">谷歌搜图链接</a></p>
-</blockquote>
-<p>最后找到了 github.io 上最早的 2015 年的文章, 看了看内容, 嗯, 就是想要的味道, 仔细对比时间, 没想到反倒是之前这篇文章post出来的时间最早, 那么它引用的那篇文章是否就是最早的, 亦或者也引用了其他文章?</p>
-<p><img src="/image/article-trace-7.png" alt><br><img src="/image/article-trace-10.png" alt></p>
-<p>也许还有其他手段, 但这包括写文的几十分钟已经消逝掉了, 就先这样吧</p>
-</div>
+<p><img src="/image/article-trace-1.png" alt></p></div><a class="more" href="/2020/02/27/article-trace-record/#more">阅读更多</a>
           <hr>
         </div>
         <div class="recent-post-item article-container"><a class="article-title" href="/2020/02/19/hexo-history/">hexo history 插件开发</a>
